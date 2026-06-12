@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>簿記2級 仕訳問題 無料100問｜スマホ対応・一問一答で繰り返し練習【百問仕訳録】</title>
+<meta name="description" content="日商簿記2級の仕訳問題100問を無料で練習。商業簿記の全分野（電子記録債権・リース・圧縮記帳・税効果・外貨建・連結前提論点など）をランダム出題。覚えた問題はチェックで除外でき、スマホだけで隙間時間に一問一答学習ができます。">
+<link rel="canonical" href="https://kumeyu30269-wq.github.io/Boki/">
+<meta property="og:url" content="https://kumeyu30269-wq.github.io/Boki/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="簿記2級 仕訳問題 無料100問｜百問仕訳録">
+<meta property="og:description" content="簿記2級の仕訳100問をスマホで繰り返し練習。覚えた問題はチェックで出題除外。登録不要・無料。">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "百問仕訳録 — 簿記2級 仕訳練習帳",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Web",
+  "inLanguage": "ja",
+  "description": "日商簿記2級の仕訳問題100問を無料でランダム出題。習得した問題はチェックして出題対象から除外できる一問一答型の学習アプリ。",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "JPY"}
+}
+</script>
+<style>
+:root{
+  --paper:#FBFAF5;
+  --card:#FFFFFF;
+  --ink:#22313C;
+  --ink-soft:#5A6B76;
+  --rule:#9DB8C6;        /* 帳簿の罫線色 */
+  --rule-strong:#356A87; /* 仕訳帳の太罫 */
+  --shu:#C73E2E;         /* 朱印の色 */
+  --shu-soft:#F7E5E2;
+  --moss:#2F7A57;        /* 習得済みの緑 */
+  --moss-soft:#E4F1EA;
+  --gold:#B98A2F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{
+  font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic Medium","Yu Gothic",Meiryo,sans-serif;
+  background:var(--paper);
+  background-image:repeating-linear-gradient(transparent,transparent 31px,rgba(157,184,198,.18) 31px,rgba(157,184,198,.18) 32px);
+  color:var(--ink);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:"Hiragino Mincho ProN","Yu Mincho",YuMincho,"MS PMincho",serif}
+
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 80px}
+
+/* ── ヘッダー ── */
+header{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+  border-bottom:3px double var(--rule-strong);
+  padding-bottom:14px;margin-bottom:18px;
+}
+h1{font-size:1.45rem;font-weight:600;letter-spacing:.06em;line-height:1.3}
+h1 .sub{display:block;font-size:.72rem;color:var(--ink-soft);letter-spacing:.28em;font-weight:500;margin-bottom:4px}
+.tab-switch{display:flex;gap:6px}
+.tab-switch button{
+  font:inherit;font-size:.8rem;padding:7px 13px;cursor:pointer;
+  border:1px solid var(--rule);background:transparent;color:var(--ink-soft);
+  border-radius:3px;letter-spacing:.05em;
+}
+.tab-switch button.active{background:var(--rule-strong);border-color:var(--rule-strong);color:#fff}
+.tab-switch button:focus-visible{outline:2px solid var(--shu);outline-offset:2px}
+
+/* ── 進捗 ── */
+.progress{display:flex;align-items:center;gap:14px;margin-bottom:20px;font-size:.82rem;color:var(--ink-soft)}
+.progress .bar{flex:1;height:8px;background:#E7E3D6;border-radius:4px;overflow:hidden}
+.progress .bar i{display:block;height:100%;background:var(--moss);width:0%;transition:width .4s ease;border-radius:4px}
+.progress strong{color:var(--moss);font-size:1rem}
+
+/* ── 問題カード ── */
+.qcard{
+  background:var(--card);border:1px solid #E3DFD2;border-radius:6px;
+  box-shadow:0 2px 10px rgba(34,49,60,.06);
+  padding:22px 22px 24px;position:relative;
+}
+.qmeta{display:flex;align-items:center;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.qno{
+  font-size:.78rem;color:var(--rule-strong);border:1px solid var(--rule-strong);
+  padding:2px 10px;border-radius:2px;letter-spacing:.1em;
+}
+.qcat{font-size:.72rem;color:var(--ink-soft);background:#F0EDE2;padding:3px 10px;border-radius:2px;letter-spacing:.08em}
+.qtext{font-size:1.02rem;line-height:1.95;margin-bottom:6px;text-wrap:pretty}
+.hint{font-size:.74rem;color:var(--ink-soft);margin-top:4px}
+
+/* ── 仕訳帳(答え) ── */
+.answer{display:none;margin-top:18px;animation:fade .35s ease}
+.answer.show{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.answer h3{
+  font-size:.78rem;letter-spacing:.3em;color:var(--rule-strong);
+  margin-bottom:8px;font-weight:600;
+}
+.journal{width:100%;border-collapse:collapse;border-top:2px solid var(--rule-strong);border-bottom:2px solid var(--rule-strong)}
+.journal th{
+  font-size:.72rem;font-weight:600;color:var(--rule-strong);letter-spacing:.2em;
+  padding:6px 8px;border-bottom:1px solid var(--rule);
+}
+.journal td{
+  padding:7px 8px;font-size:.92rem;border-bottom:1px solid #E8EEF2;
+  vertical-align:top;line-height:1.5;
+}
+.journal tr:last-child td{border-bottom:none}
+.journal .amt{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;width:6.5em}
+.journal .div{border-left:1px solid var(--shu);}/* 朱の仕切線 */
+.journal-block + .journal-block{margin-top:10px}
+.no-entry{
+  font-size:.95rem;padding:14px;text-align:center;color:var(--shu);
+  border:1px dashed var(--shu);border-radius:4px;letter-spacing:.15em;
+}
+.note{font-size:.78rem;color:var(--ink-soft);margin-top:10px;line-height:1.8;border-left:3px solid var(--rule);padding-left:10px}
+
+/* ── 操作 ── */
+.actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.btn{
+  font:inherit;cursor:pointer;border-radius:4px;padding:12px 18px;font-size:.92rem;
+  letter-spacing:.08em;border:1px solid transparent;transition:filter .15s;
+}
+.btn:focus-visible{outline:2px solid var(--shu);outline-offset:2px}
+.btn:hover{filter:brightness(1.05)}
+.btn-primary{background:var(--rule-strong);color:#fff;flex:1;min-width:150px}
+.btn-next{background:var(--ink);color:#fff;flex:1;min-width:150px}
+.btn-master{background:#fff;color:var(--moss);border-color:var(--moss)}
+.btn-master.done{background:var(--moss-soft)}
+
+/* ── 済スタンプ ── */
+.stamp{
+  position:absolute;top:14px;right:16px;width:58px;height:58px;border-radius:50%;
+  border:2.5px solid var(--shu);color:var(--shu);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;font-weight:600;
+  transform:rotate(-12deg);opacity:0;pointer-events:none;transition:opacity .25s;
+}
+.stamp.show{opacity:.85}
+
+/* ── 完了画面 ── */
+.complete{
+  text-align:center;padding:60px 20px;background:var(--card);
+  border:1px solid #E3DFD2;border-radius:6px;
+}
+.complete .big-stamp{
+  width:110px;height:110px;border-radius:50%;border:4px solid var(--shu);color:var(--shu);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
+  font-size:2.2rem;font-weight:700;transform:rotate(-10deg);
+}
+.complete p{color:var(--ink-soft);font-size:.9rem;line-height:2;margin-bottom:20px}
+
+/* ── 一覧 ── */
+.list-tools{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;align-items:center}
+.list-tools select{
+  font:inherit;font-size:.82rem;padding:7px 10px;border:1px solid var(--rule);
+  border-radius:3px;background:#fff;color:var(--ink);
+}
+.list-tools .spacer{flex:1}
+.btn-reset{background:#fff;color:var(--shu);border-color:var(--shu);font-size:.78rem;padding:8px 12px}
+.qlist{list-style:none}
+.qlist li{
+  background:var(--card);border:1px solid #E8E4D8;border-radius:4px;
+  padding:11px 13px;margin-bottom:8px;display:flex;gap:11px;align-items:flex-start;
+  font-size:.85rem;line-height:1.7;
+}
+.qlist li.mastered{background:var(--moss-soft);border-color:#BFDCCB}
+.qlist input[type=checkbox]{
+  width:19px;height:19px;margin-top:3px;accent-color:var(--moss);cursor:pointer;flex-shrink:0;
+}
+.qlist .li-no{color:var(--rule-strong);font-size:.74rem;white-space:nowrap;margin-top:3px;letter-spacing:.05em}
+.qlist .li-cat{display:inline-block;font-size:.68rem;color:var(--ink-soft);background:#F0EDE2;padding:1px 7px;border-radius:2px;margin-left:6px}
+
+.save-note{font-size:.72rem;color:var(--ink-soft);text-align:center;margin-top:26px;line-height:1.8}
+
+/* ── 閲覧モード ── */
+.browse-lead{font-size:.78rem;color:var(--ink-soft);margin:-4px 0 14px;line-height:1.7}
+.bcard{
+  background:var(--card);border:1px solid #E3DFD2;border-radius:6px;
+  padding:18px 18px 20px;margin-bottom:14px;position:relative;
+}
+.bcard.mastered{background:#FAFCF9;border-color:#CFE3D7}
+.bcard .qtext{font-size:.95rem;line-height:1.9;margin-bottom:14px}
+.bcard .answer{display:block;margin-top:0}
+.bcard .b-master{
+  position:absolute;top:12px;right:12px;
+  font:inherit;font-size:.72rem;letter-spacing:.1em;cursor:pointer;
+  width:42px;height:42px;border-radius:50%;
+  border:2px solid #D8D3C4;background:#fff;color:#B9B2A0;
+  transform:rotate(-10deg);transition:border-color .15s,color .15s,background .15s;
+}
+.bcard .b-master.done{border-color:var(--shu);color:var(--shu);background:var(--shu-soft)}
+.bcard .b-master:focus-visible{outline:2px solid var(--shu);outline-offset:2px}
+.bcard .qmeta{padding-right:50px}
+
+
+/* ── おすすめ教材(アフィリエイト枠) ── */
+.reco{margin-top:18px;background:var(--card);border:1px solid #E3DFD2;border-radius:6px;padding:16px 18px}
+.reco .pr{font-size:.66rem;color:var(--ink-soft);letter-spacing:.05em;margin-bottom:6px}
+.reco h2{font-size:.92rem;letter-spacing:.12em;color:var(--rule-strong);margin-bottom:10px;font-weight:600}
+.reco-item{border-top:1px solid #EEEAE0;padding:11px 0;display:flex;flex-direction:column;gap:5px}
+.reco-item .r-name{font-size:.9rem;font-weight:600}
+.reco-item .r-desc{font-size:.78rem;color:var(--ink-soft);line-height:1.7}
+.reco-item a.r-btn,.reco-item span.r-btn{
+  align-self:flex-start;font-size:.78rem;padding:7px 14px;border-radius:4px;
+  text-decoration:none;letter-spacing:.05em;margin-top:2px;
+}
+.reco-item a.r-btn{background:var(--shu);color:#fff}
+.reco-item span.r-btn{background:#EFEce1;color:var(--ink-soft)}
+
+/* ── フッター・規約ページ ── */
+footer{margin-top:36px;border-top:1px solid #E3DFD2;padding-top:16px;text-align:center}
+footer nav{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;font-size:.72rem}
+footer a{color:var(--ink-soft)}
+footer .copy{font-size:.68rem;color:var(--ink-soft);margin-top:10px;letter-spacing:.05em}
+dialog.policy{
+  border:1px solid #D8D3C4;border-radius:8px;max-width:600px;width:92%;
+  padding:24px 22px;color:var(--ink);background:var(--card);
+}
+dialog.policy::backdrop{background:rgba(34,49,60,.45)}
+dialog.policy h2{font-size:1.05rem;letter-spacing:.1em;margin-bottom:14px;color:var(--rule-strong)}
+dialog.policy h3{font-size:.86rem;margin:16px 0 6px}
+dialog.policy p,dialog.policy li{font-size:.8rem;line-height:1.9;color:var(--ink)}
+dialog.policy ul{padding-left:18px}
+dialog.policy .close-btn{margin-top:18px}
+
+/* ── 答案入力欄(仕訳帳セル方式) ── */
+.io-area{margin-top:16px}
+.io-area h3{font-size:.78rem;letter-spacing:.3em;color:var(--rule-strong);margin-bottom:8px;font-weight:600}
+.io-table{width:100%;border-collapse:collapse;border-top:2px solid var(--rule-strong);border-bottom:2px solid var(--rule-strong);background:#fff;table-layout:fixed}
+.io-table th{font-size:.7rem;font-weight:600;color:var(--rule-strong);letter-spacing:.18em;padding:6px 4px;border-bottom:1px solid var(--rule)}
+.io-table td{border-bottom:1px solid #E8EEF2;padding:0;vertical-align:middle}
+.io-table tr:last-child td{border-bottom:none}
+.io-table td.div{border-left:1px solid var(--shu)}
+.io-table td.amt-cell{width:24%}
+.io-table select,.io-table input{
+  width:100%;font:inherit;font-size:.85rem;border:none;background:transparent;
+  padding:11px 6px;color:var(--ink);border-radius:0;-webkit-appearance:none;appearance:none;
+}
+.io-table select{cursor:pointer;color:var(--ink)}
+.io-table select:invalid,.io-table select option[value=""]{color:#A8B2B9}
+.io-table input{text-align:right;font-variant-numeric:tabular-nums}
+.io-table input::placeholder{color:#C2CAD0}
+.io-table select:focus,.io-table input:focus{outline:none;background:#EFF5F8;box-shadow:inset 0 -2px 0 var(--rule-strong)}
+.io-add{font-size:.74rem;background:none;border:1px dashed var(--rule);color:var(--ink-soft);padding:7px 12px;border-radius:3px;cursor:pointer;font-family:inherit;margin-top:8px}
+.io-none{display:flex;align-items:center;gap:8px;font-size:.8rem;margin-top:12px;color:var(--ink-soft);cursor:pointer}
+.io-none input{width:17px;height:17px;accent-color:var(--shu)}
+.io-area.locked{opacity:.65;pointer-events:none}
+.result{display:none;margin-top:14px;padding:13px 16px;border-radius:5px;font-size:.98rem;letter-spacing:.06em;line-height:1.7}
+.result.ok{display:block;background:var(--moss-soft);color:var(--moss);border:1px solid #BFDCCB}
+.result.ng{display:block;background:var(--shu-soft);color:var(--shu);border:1px solid #EBC6BF}
+.result.warn{display:block;background:#FbF4E2;color:#8A6A1F;border:1px solid #E6D7AC}
+.btn-ghost{background:#fff;color:var(--ink-soft);border-color:var(--rule);font-size:.82rem;flex:none}
+
+@media (max-width:480px){
+  h1{font-size:1.2rem}
+  .qcard{padding:18px 14px 20px}
+  .journal td{font-size:.85rem;padding:6px 5px}
+  .journal .amt{width:5.2em}
+  .stamp{width:46px;height:46px;font-size:1.2rem;top:10px;right:10px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1 class="serif"><span class="sub">日商簿記2級 ・ 仕訳練習帳</span>百問仕訳録</h1>
+    <nav class="tab-switch" aria-label="表示切替">
+      <button id="tabPractice" class="active">練習</button>
+      <button id="tabBrowse">閲覧</button>
+      <button id="tabList">一覧</button>
+    </nav>
+  </header>
+
+  <div class="progress" aria-live="polite">
+    <span>習得済み <strong id="masteredCount">0</strong> / 100</span>
+    <div class="bar"><i id="progressBar"></i></div>
+    <span id="remainCount">残り 100問</span>
+  </div>
+
+  <main id="practiceView">
+    <div class="qcard" id="qcard">
+      <div class="stamp serif" id="stamp" aria-hidden="true">済</div>
+      <div class="qmeta">
+        <span class="qno" id="qNo">第–問</span>
+        <span class="qcat" id="qCat"></span>
+      </div>
+      <p class="qtext" id="qText"></p>
+      <p class="hint">※ 会計期間は4月1日〜3月31日。指示がない限り三分法・税抜方式とする。</p>
+
+      <section class="io-area" id="inputArea" aria-label="答案入力欄">
+        <h3 class="serif">答 案 用 紙 — セルをタップして入力</h3>
+        <table class="io-table">
+          <thead><tr><th>借方科目</th><th class="amt-cell">金額</th><th class="div">貸方科目</th><th class="amt-cell">金額</th></tr></thead>
+          <tbody id="ioRows"></tbody>
+        </table>
+        <button class="io-add" id="addRow" type="button">＋ 行を追加</button>
+        <label class="io-none"><input type="checkbox" id="chkNone">この取引に仕訳は不要（仕訳なし）</label>
+      </section>
+      <div class="result" id="resultBanner" aria-live="polite"></div>
+
+      <section class="answer" id="answerArea" aria-live="polite">
+        <h3 class="serif">仕 訳 帳</h3>
+        <div id="journalArea"></div>
+        <p class="note" id="noteArea" hidden></p>
+      </section>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="btnGrade">採点する</button>
+        <button class="btn btn-ghost" id="btnShow">答えだけ見る</button>
+        <button class="btn btn-master" id="btnMaster" hidden>✓ マスター済みにする</button>
+        <button class="btn btn-next" id="btnNext" hidden>次の問題へ →</button>
+      </div>
+    </div>
+
+    <div class="complete" id="completeView" hidden>
+      <div class="big-stamp serif">全問<br>習得</div>
+      <h2 class="serif" style="font-size:1.3rem;letter-spacing:.2em;margin-bottom:14px">百問仕訳、皆伝。</h2>
+      <p>100問すべてをマスターしました。<br>「一覧」からチェックを外すと、再び出題されます。</p>
+      <button class="btn btn-primary" id="btnRestart" style="flex:none">すべて未習得に戻して再挑戦</button>
+    </div>
+  </main>
+
+  <main id="browseView" hidden>
+    <div class="list-tools">
+      <select id="browseCat" aria-label="分野で絞り込み"><option value="">すべての分野</option></select>
+      <select id="browseState" aria-label="状態で絞り込み">
+        <option value="">すべて</option>
+        <option value="mastered">習得済みのみ</option>
+        <option value="remaining">未習得のみ</option>
+      </select>
+    </div>
+    <p class="browse-lead">問題・仕訳・解説をまとめて確認できます。覚えたら右上の「済」をタップ。</p>
+    <div id="browseArea"></div>
+  </main>
+
+  <main id="listView" hidden>
+    <div class="list-tools">
+      <select id="filterCat" aria-label="分野で絞り込み"><option value="">すべての分野</option></select>
+      <select id="filterState" aria-label="状態で絞り込み">
+        <option value="">すべて</option>
+        <option value="mastered">習得済みのみ</option>
+        <option value="remaining">未習得のみ</option>
+      </select>
+      <span class="spacer"></span>
+      <button class="btn btn-reset" id="btnReset">チェックを全解除</button>
+    </div>
+    <ul class="qlist" id="qList"></ul>
+  </main>
+
+  <p class="save-note">チェック状況は自動保存されます。問題はチェックの付いていないものから無作為に出題されます。</p>
+
+  <aside class="reco" id="recoArea" hidden>
+    <p class="pr">［PR］当サイトはアフィリエイト広告を利用しています。</p>
+    <h2 class="serif">仕訳の次の一歩に — おすすめ教材・講座</h2>
+    <div id="recoList"></div>
+  </aside>
+
+  <section style="margin-top:30px;font-size:.78rem;color:var(--ink-soft);line-height:2">
+    <h2 class="serif" style="font-size:.95rem;color:var(--ink);letter-spacing:.1em;margin-bottom:8px">このサイトについて</h2>
+    <p>「百問仕訳録」は、日商簿記2級（商業簿記）の仕訳を一問一答形式で練習できる無料サイトです。商品売買・銀行勘定調整・電子記録債権・手形・有価証券・固定資産・リース取引・圧縮記帳・引当金・純資産・法人税等・税効果会計・外貨建取引・合併・本支店会計など、本試験第1問で出題される論点を100問に凝縮しました。金額はすべて暗算できる簡単な数値にしてあるため、電卓なしで通勤・通学の隙間時間に仕訳の「型」を体に覚えさせることができます。マスターした問題はチェックを付けると出題されなくなるので、苦手な仕訳だけを効率よく繰り返せます。「閲覧」タブでは100問すべての問題・仕訳・解説を読み物として通読でき、試験直前の総ざらいにも使えます。つまずきやすい論点は<a href="kaisetsu.html" style="color:var(--rule-strong)">解説記事</a>で理由から理解できます。</p>
+  </section>
+
+  <footer>
+    <nav>
+      <a href="kaisetsu.html">論点解説記事</a>
+      <a href="#" id="linkPolicy">プライバシーポリシー</a>
+      <a href="#" id="linkDisclaimer">免責事項</a>
+      <a href="#" id="linkAbout">運営者情報</a>
+    </nav>
+    <p class="copy">© 百問仕訳録 — 日商簿記2級 仕訳練習帳</p>
+  </footer>
+
+  <dialog class="policy" id="dlgPolicy">
+    <h2 class="serif">プライバシーポリシー</h2>
+    <h3>広告の配信について</h3>
+    <p>当サイトは、アフィリエイトプログラム（A8.net、もしもアフィリエイト、Amazonアソシエイト等）に参加しており、商品やサービスのリンクを通じて紹介料を得ることがあります。リンク先での購入・申込みにより、運営者に収益が発生する場合があります。</p>
+    <h3>アクセス解析について</h3>
+    <p>当サイトでは、サービス向上のためアクセス解析ツールを利用する場合があります。これらはCookieを使用して匿名のトラフィックデータを収集しますが、個人を特定する情報は含まれません。</p>
+    <h3>学習データについて</h3>
+    <p>問題のチェック状況は、お使いの端末のブラウザ内にのみ保存されます。運営者がこのデータを収集・閲覧することはありません。</p>
+    <button class="btn btn-primary close-btn" data-close>閉じる</button>
+  </dialog>
+
+  <dialog class="policy" id="dlgDisclaimer">
+    <h2 class="serif">免責事項</h2>
+    <p>当サイトの問題・解説は学習の参考として作成したものであり、内容の正確性・最新性について保証するものではありません。実際の試験範囲・会計基準は変更されることがあるため、最新の情報は日本商工会議所の公式情報や市販教材でご確認ください。当サイトの利用により生じたいかなる損害についても、運営者は責任を負いかねます。また、リンク先の商品・サービスに関するお問い合わせは各販売元へお願いいたします。</p>
+    <button class="btn btn-primary close-btn" data-close>閉じる</button>
+  </dialog>
+
+  <dialog class="policy" id="dlgAbout">
+    <h2 class="serif">運営者情報</h2>
+    <p>運営者：（ここにペンネームを記入）</p>
+    <p>連絡先：（ここに連絡用メールアドレスを記入）</p>
+    <p>当サイトは、日商簿記2級の合格を目指す方のために、仕訳問題を繰り返し練習できる場として運営しています。</p>
+    <button class="btn btn-primary close-btn" data-close>閉じる</button>
+  </dialog>
+</div>
+<script>
+// ───────────────────────────────────────────────
+// 問題データ 100問
+// d: 借方 [[勘定科目, 金額],...]  c: 貸方
+// 複数仕訳は entries 配列。none:true は「仕訳なし」
+// ───────────────────────────────────────────────
+const QUESTIONS = [
+// ── 商品売買・サービス業 (1–10) ──
+{id:1,cat:"商品売買",q:"商品（原価¥5,000）を¥8,000で掛け販売した。当社は商品売買の記帳を売上原価対立法によっている。",
+ entries:[{d:[["売掛金",8000]],c:[["売上",8000]]},{d:[["売上原価",5000]],c:[["商品",5000]]}],
+ note:"売上原価対立法では、商品を販売するたびに2本の仕訳を切る。①売価¥8,000で売上を計上し、②同時に原価¥5,000を商品勘定（資産）から売上原価勘定（費用）へ振り替える。三分法と異なり決算整理（しーくり・くりしー）が不要になる方法で、問題文の「売上原価対立法」「販売のつど振り替える」という指示が見分けるキーワード。",trap:["仕入","繰越商品","買掛金","役務原価"]},
+{id:2,cat:"商品売買",q:"先に掛けで仕入れた商品について、仕入先から¥1,000の割戻しを受け、買掛金と相殺した。",
+ entries:[{d:[["買掛金",1000]],c:[["仕入",1000]]}],
+ note:"割戻し（リベート）は仕入代金の一部返戻なので、仕入（費用）を直接減額する。掛代金と相殺するため借方は買掛金¥1,000。返品（仕入戻し）と同じ仕訳の形だが、割戻は「一定数量を超えた購入への代金の減額」である点が異なる。",trap:["売上","仕入割戻","未収入金","雑益"]},
+{id:3,cat:"商品売買",q:"商品¥10,000をクレジット払いの条件で販売した。信販会社への手数料（販売代金の2%）は販売時に計上する。",
+ entries:[{d:[["クレジット売掛金",9800],["支払手数料",200]],c:[["売上",10000]]}],
+ note:"クレジット販売では、信販会社に対する債権をクレジット売掛金（資産）で処理する。手数料は¥10,000×2%＝¥200。販売時に計上する指示なので支払手数料（費用）を借方に立て、クレジット売掛金は手数料控除後の¥9,800となる。売上は総額¥10,000のまま計上する点に注意。",trap:["売掛金","受取手形","支払利息","前受金"]},
+{id:4,cat:"商品売買",q:"顧客に対するサービスの提供が完了し、対価¥20,000を掛けとした。なお、このサービスのために直接費やした諸費用¥12,000はすでに仕掛品勘定に計上している。",
+ entries:[{d:[["売掛金",20000]],c:[["役務収益",20000]]},{d:[["役務原価",12000]],c:[["仕掛品",12000]]}],
+ note:"サービス業では、サービスの提供が完了した時点で役務収益（商品売買業の売上に相当）を計上する。同時に、それまで仕掛品勘定に集計していた直接費¥12,000を役務原価（費用）へ振り替え、収益と費用を対応させる。「収益の計上」と「原価への振替」の2本セットで覚える。",trap:["売上","仕入","商品","給料"]},
+{id:5,cat:"商品売買",q:"かねて注文を受けた際に手付金¥2,000を受け取っていた商品¥10,000を引き渡し、残額は掛けとした。",
+ entries:[{d:[["前受金",2000],["売掛金",8000]],c:[["売上",10000]]}],
+ note:"注文時に受け取った手付金は前受金（負債）として計上済み。商品を引き渡して履行義務を果たした時点で前受金¥2,000を取り崩し、残額¥8,000を売掛金、合計¥10,000を売上とする。収益認識基準では前受金の代わりに契約負債を使うこともある（本問はどちらでも正解扱い）。",trap:["仮受金","前払金","未収入金","受取手形"]},
+{id:6,cat:"商品売買",q:"商品¥6,000を掛けで仕入れ、引取運賃¥500は現金で支払った。",
+ entries:[{d:[["仕入",6500]],c:[["買掛金",6000],["現金",500]]}],
+ note:"引取運賃などの仕入諸掛（当社負担分）は商品の取得原価に含めるため、仕入は¥6,000＋¥500＝¥6,500。貸方は商品代金の買掛金¥6,000と、運賃を支払った現金¥500の2つに分かれる。諸掛を費用として別建てしないことがポイント。",trap:["発送費","支払手数料","立替金","未払金"]},
+{id:7,cat:"商品売買",q:"商品¥10,000を掛けで販売した。このうち¥1,000は、販売数量に応じて顧客に支払うリベート（売上割戻）の見込額である。",
+ entries:[{d:[["売掛金",10000]],c:[["売上",9000],["返金負債",1000]]}],
+ note:"収益認識基準では、後日顧客に支払う見込みの割戻額は収益に含めない。代金総額¥10,000のうち割戻見込¥1,000を返金負債（負債）とし、売上は差額の¥9,000で計上する。売掛金は請求額どおり総額¥10,000とする点がひっかけどころ。",trap:["売上割戻","前受金","仮受金","契約資産"]},
+{id:8,cat:"商品売買",q:"商品¥5,000の販売契約を結び、商品の引渡し前に代金全額を現金で受け取った。",
+ entries:[{d:[["現金",5000]],c:[["契約負債",5000]]}],
+ note:"商品の引渡し（履行義務の充足）前に受け取った対価は、まだ収益にできないため契約負債（負債）とする。考え方は従来の前受金と同じで、引渡しが完了した時点で売上へ振り替える。",trap:["仮受金","売上","契約資産","未払金"]},
+{id:9,cat:"商品売買",q:"商品¥3,000を販売し、代金として自治体発行の商品券を受け取った。",
+ entries:[{d:[["受取商品券",3000]],c:[["売上",3000]]}],
+ note:"自治体や他社が発行した商品券を受け取ったときは、後日発行元に代金を請求できる権利として受取商品券（資産）で処理する。代金請求権という資産が増える、と捉えると借方に来る理由がわかる。",trap:["前払金","仮払金","貯蔵品","売掛金"]},
+{id:10,cat:"商品売買",q:"給料総額のうち¥4,000は、特定のサービス提供のために直接費やされたものであることが判明したため、適切な勘定へ振り替えた。",
+ entries:[{d:[["仕掛品",4000]],c:[["給料",4000]]}],
+ note:"サービス業で、特定の案件のために直接かかった費用は、提供が完了するまで仕掛品（資産）に集計しておく。すでに給料（費用）として計上した¥4,000のうち直接費分を仕掛品へ振り替える＝費用の取消し＋資産計上。完了時に役務原価へ振り替える流れ（第4問）とセットで理解する。",trap:["役務原価","役務収益","前払費用","立替金"]},
+
+// ── 現金預金・債権債務 (11–20) ──
+{id:11,cat:"現金預金・債権",q:"決算にあたり銀行勘定調整表を作成したところ、買掛金支払のために振り出した小切手¥3,000が金庫に保管されたまま（未渡し）であることが判明した。",
+ entries:[{d:[["当座預金",3000]],c:[["買掛金",3000]]}],
+ note:"小切手は振り出した時点で当座預金の減少として記帳済みだが、相手に渡していなければ実際にはまだ支払っていない。そこで当座預金を借方に立てて元に戻す。仕入債務の支払いのためのものだったので、貸方は買掛金を復活させる。未渡小切手は銀行勘定調整表の「企業側の調整項目」。",trap:["未払金","現金","支払手形","仮払金"]},
+{id:12,cat:"現金預金・債権",q:"決算にあたり、広告宣伝費の支払いのために作成した小切手¥2,000が未渡しであることが判明した。",
+ entries:[{d:[["当座預金",2000]],c:[["未払金",2000]]}],
+ note:"同じ未渡小切手でも、広告宣伝費など費用の支払いのために作成したものは、費用自体がすでに発生しているため費用は取り消さない。支払義務だけが残っている状態なので、貸方は未払金（負債）とする。貸方が買掛金になるケース（第11問）との使い分けが頻出。",trap:["買掛金","広告宣伝費","現金","仮払金"]},
+{id:13,cat:"現金預金・債権",q:"売掛金¥5,000について、取引銀行を通じて電子記録債権の発生記録を行った。",
+ entries:[{d:[["電子記録債権",5000]],c:[["売掛金",5000]]}],
+ note:"電子記録債権は、手形に代わる電子化された金銭債権。債権者側は発生記録によって売掛金から電子記録債権（資産）へ振り替える。債権の形が変わるだけで金額は変わらない。",trap:["電子記録債務","受取手形","クレジット売掛金","未収入金"]},
+{id:14,cat:"現金預金・債権",q:"買掛金¥4,000について、取引銀行を通じて電子記録債務の発生記録を行った。",
+ entries:[{d:[["買掛金",4000]],c:[["電子記録債務",4000]]}],
+ note:"債務者側では、発生記録により買掛金から電子記録債務（負債）へ振り替える。債権者側の電子記録債権（第13問）と表裏の関係にある処理として対で覚える。",trap:["電子記録債権","支払手形","未払金","営業外支払手形"]},
+{id:15,cat:"現金預金・債権",q:"所有する電子記録債権¥5,000を¥4,900で譲渡し、代金は当座預金口座に振り込まれた。",
+ entries:[{d:[["当座預金",4900],["電子記録債権売却損",100]],c:[["電子記録債権",5000]]}],
+ note:"電子記録債権は手形と同じように他人へ譲渡（売却）できる。帳簿価額¥5,000の債権を¥4,900で譲渡したので、差額¥100は電子記録債権売却損（費用）。手形を割り引いたときの手形売却損とまったく同じ考え方。",trap:["手形売却損","支払手数料","雑損","受取手形"]},
+{id:16,cat:"現金預金・債権",q:"当期に掛け販売した商品の売掛金¥2,000が貸し倒れた。なお、貸倒引当金の残高は¥3,000ある。",
+ entries:[{d:[["貸倒損失",2000]],c:[["売掛金",2000]]}],
+ note:"貸倒引当金は前期末の債権残高に対して設定したもの。当期に発生した売掛金の貸倒れには充当できないため、引当金の残高が¥3,000あっても全額を貸倒損失（費用）とする。「その債権がいつ発生したか」をまず確認するのがこの論点のコツ。",trap:["貸倒引当金","貸倒引当金繰入","貸倒引当金戻入","償却債権取立益"]},
+{id:17,cat:"現金預金・債権",q:"前期に発生した売掛金¥3,000が貸し倒れた。貸倒引当金の残高は¥2,500である。",
+ entries:[{d:[["貸倒引当金",2500],["貸倒損失",500]],c:[["売掛金",3000]]}],
+ note:"前期以前に発生した債権の貸倒れは、設定済みの貸倒引当金をまず取り崩す。残高¥2,500では¥3,000に足りないため、不足分¥500だけを貸倒損失とする。第16問（当期発生→全額損失）と対比して覚える。",trap:["貸倒引当金繰入","償却債権取立益","貸倒引当金戻入","雑損"]},
+{id:18,cat:"現金預金・債権",q:"前期に貸倒れとして処理していた売掛金のうち¥1,000を、当期になって現金で回収した。",
+ entries:[{d:[["現金",1000]],c:[["償却債権取立益",1000]]}],
+ note:"前期以前に貸倒処理した債権を後日回収できたときは、過去の仕訳を訂正せず、回収額を償却債権取立益（収益）として計上する。当期に貸倒処理したものを当期中に回収した場合（貸倒処理の取消し）とは処理が異なるので区別する。",trap:["貸倒引当金","貸倒損失","貸倒引当金戻入","雑益"]},
+{id:19,cat:"現金預金・債権",q:"決算において、当座預金勘定が¥2,000の貸方残高となっていたため、適切な勘定へ振り替える。",
+ entries:[{d:[["当座預金",2000]],c:[["当座借越",2000]]}],
+ note:"当座預金の貸方残高は、銀行に立て替えてもらっている＝一時的な借入れを意味する。決算では負債として表示するため、当座借越（または借入金）勘定へ振り替える。翌期首には再振替仕訳で当座預金に戻す。",trap:["支払手形","未払金","仮受金","買掛金"]},
+{id:20,cat:"現金預金・債権",q:"銀行勘定調整表の作成にあたり、決算日に預け入れた現金¥1,000が銀行の営業時間終了後であったため、翌日入金として扱われていたこと（時間外預入）が判明した。",
+ none:true,
+ note:"時間外預入は、企業側は正しく記帳済みで、銀行側の残高にまだ反映されていないだけの項目。修正すべきは銀行残高なので企業の仕訳は不要。仕訳が必要なのは未渡小切手・連絡未通知・誤記入などの「企業側の調整項目」だけ、という判定が銀行勘定調整表の最重要ポイント。",trap:["当座預金","現金","買掛金","未払金","通信費"]},
+
+// ── 手形 (21–28) ──
+{id:21,cat:"手形",q:"買掛金¥4,000の支払いのため、かねて受け取っていた約束手形を裏書譲渡した。",
+ entries:[{d:[["買掛金",4000]],c:[["受取手形",4000]]}],
+ note:"受け取っていた手形を支払いに回す（裏書譲渡する）と手形債権が消滅するため、受取手形を貸方に記入する。買掛金¥4,000の支払いに充てたので借方は買掛金。手形が手元からなくなる＝受取手形の減少、と素直に考える。",trap:["支払手形","営業外受取手形","不渡手形","売掛金"]},
+{id:22,cat:"手形",q:"所有する約束手形¥6,000を銀行で割り引き、割引料¥100を差し引かれた手取金が当座預金口座に入金された。",
+ entries:[{d:[["当座預金",5900],["手形売却損",100]],c:[["受取手形",6000]]}],
+ note:"手形の割引は、満期前の手形を銀行に買い取ってもらう資金調達。額面¥6,000と手取額¥5,900の差額である割引料¥100は手形売却損（費用）で処理する。受取手形は額面金額で消滅させ、手取額だけ当座預金が増える。",trap:["支払利息","支払手数料","電子記録債権売却損","雑損"]},
+{id:23,cat:"手形",q:"かねて割り引いていた約束手形¥5,000が不渡りとなり、銀行から償還請求を受けたため小切手を振り出して支払った。また、償還請求に伴う諸費用¥100は現金で支払った。",
+ entries:[{d:[["不渡手形",5100]],c:[["当座預金",5000],["現金",100]]}],
+ note:"割り引いた手形が不渡りになると、銀行から手形代金の買戻し（償還）を請求される。支払った手形代金¥5,000と諸費用¥100の合計¥5,100を、手形の振出人に請求できる債権として不渡手形（資産）に計上する。償還費用も不渡手形に含める点がポイント。",trap:["受取手形","貸倒損失","支払手形","雑損"]},
+{id:24,cat:"手形",q:"支払手形¥8,000について満期日の延期を申し入れ、了承された。旧手形と引き換えに新手形を振り出し、延期に伴う利息¥200は現金で支払った。",
+ entries:[{d:[["支払手形",8000],["支払利息",200]],c:[["支払手形",8000],["現金",200]]}],
+ note:"手形の更改は、旧手形を新手形に差し替えて支払期日を延ばすこと。借方の支払手形¥8,000は旧手形の消滅、貸方の支払手形¥8,000は新手形の振出しを表す。期日延長の対価である利息¥200は支払利息とする。利息を新手形の額面に含める（貸方の支払手形を¥8,200にする）パターンの出題もある。",trap:["受取手形","受取利息","手形貸付金","未払利息"]},
+{id:25,cat:"手形",q:"土地（帳簿価額¥9,000）を¥10,000で売却し、代金として先方振出しの約束手形を受け取った。",
+ entries:[{d:[["営業外受取手形",10000]],c:[["土地",9000],["固定資産売却益",1000]]}],
+ note:"土地など商品以外のものを売却して受け取った手形は、営業取引の受取手形と区別して営業外受取手形（資産）とする。売却益は売価¥10,000−帳簿価額¥9,000＝¥1,000。「何の対価として受け取った手形か」で科目が決まる。",trap:["受取手形","手形貸付金","未収入金","不渡手形"]},
+{id:26,cat:"手形",q:"備品¥7,000を購入し、代金として約束手形を振り出した。",
+ entries:[{d:[["備品",7000]],c:[["営業外支払手形",7000]]}],
+ note:"備品など商品以外の購入のために振り出した手形は営業外支払手形（負債）。商品仕入のためなら支払手形。第25問の営業外受取手形と対になる論点で、取引の内容（営業か営業外か）で科目を使い分ける。",trap:["支払手形","未払金","手形借入金","買掛金"]},
+{id:27,cat:"手形",q:"取引先に¥5,000を貸し付け、借用証書の代わりに同額の約束手形を受け取った。なお、利息¥100を差し引いた残額を現金で渡した。",
+ entries:[{d:[["手形貸付金",5000]],c:[["現金",4900],["受取利息",100]]}],
+ note:"金銭を貸し付けて、借用証書の代わりに手形を受け取った場合は、実態が貸付けなので手形貸付金（資産）で処理する（受取手形としない）。利息¥100を天引きするため実際に渡す現金は¥4,900となり、差額は受取利息（収益）として貸方に計上する。",trap:["受取手形","貸付金","営業外受取手形","支払利息"]},
+{id:28,cat:"手形",q:"当期に取得した不渡手形¥5,000について、回収の見込みがないことが確定した。なお、この手形に対する貸倒引当金は設定していない。",
+ entries:[{d:[["貸倒損失",5000]],c:[["不渡手形",5000]]}],
+ note:"不渡手形（資産）の回収が不能と確定したら貸倒れの処理を行う。本問は引当金を設定していないため全額を貸倒損失とする。引当金が設定されていればまず充当し、不足分を貸倒損失とする（第17問と同じ要領）。",trap:["貸倒引当金","貸倒引当金繰入","受取手形","雑損"]},
+
+// ── 有価証券 (29–38) ──
+{id:29,cat:"有価証券",q:"売買目的でA社株式100株を1株¥50で購入し、購入手数料¥200とともに現金で支払った。",
+ entries:[{d:[["売買目的有価証券",5200]],c:[["現金",5200]]}],
+ note:"有価証券の取得原価＝購入代価＋付随費用（購入手数料など）。100株×@¥50＋¥200＝¥5,200で売買目的有価証券（資産）に計上する。手数料を支払手数料として費用処理しないことが最大の注意点。",trap:["支払手数料","その他有価証券","満期保有目的債券","子会社株式"]},
+{id:30,cat:"有価証券",q:"売買目的で保有する株式（帳簿価額¥5,200）を¥6,000で売却し、代金は後日受け取ることとした。",
+ entries:[{d:[["未収入金",6000]],c:[["売買目的有価証券",5200],["有価証券売却益",800]]}],
+ note:"帳簿価額¥5,200の株式を¥6,000で売却したので、差額¥800は有価証券売却益（収益）。代金は商品の販売代金ではないため、売掛金ではなく未収入金（資産）とする。「商品なら売掛金、それ以外なら未収入金」の使い分けは頻出。",trap:["売掛金","有価証券売却損","有価証券評価益","受取手数料"]},
+{id:31,cat:"有価証券",q:"決算にあたり、売買目的有価証券（帳簿価額¥5,000）を時価¥5,500に評価替えする。",
+ entries:[{d:[["売買目的有価証券",500]],c:[["有価証券評価益",500]]}],
+ note:"売買目的有価証券は決算時に時価で評価し、評価差額は当期の損益とする。時価¥5,500−帳簿価額¥5,000＝評価益¥500。時価が下がっていれば有価証券評価損（借方）。その他有価証券（評価差額金で処理）との違いが最重要。",trap:["その他有価証券評価差額金","有価証券売却益","有価証券評価損","その他有価証券"]},
+{id:32,cat:"有価証券",q:"満期保有目的で、額面¥10,000の社債を額面¥100につき¥97で購入し、端数利息¥100とともに小切手を振り出して支払った。",
+ entries:[{d:[["満期保有目的債券",9700],["有価証券利息",100]],c:[["当座預金",9800]]}],
+ note:"利払日の間に社債を購入すると、前回利払日から購入日までの利息（端数利息）を売主に支払う。この分は次の利払日に全額受け取って取り戻せるため、有価証券利息の借方（マイナス）として処理する。取得原価は額面¥10,000×97/100＝¥9,700で、端数利息は取得原価に含めない。",trap:["受取利息","支払利息","未収入金","前払金"]},
+{id:33,cat:"有価証券",q:"決算にあたり、当期首に取得した満期保有目的債券（額面¥10,000、取得原価¥9,700、償還期間5年）について、償却原価法（定額法）を適用する。",
+ entries:[{d:[["満期保有目的債券",60]],c:[["有価証券利息",60]]}],
+ note:"額面より安く取得した差額（金利の調整部分）を、満期までの期間にわたり均等に帳簿価額へ加算していくのが償却原価法（定額法）。（¥10,000−¥9,700）÷5年＝¥60を満期保有目的債券に加算し、相手科目は有価証券利息（収益）とする。",trap:["受取利息","有価証券評価益","その他有価証券","売買目的有価証券"]},
+{id:34,cat:"有価証券",q:"決算にあたり、その他有価証券（取得原価¥8,000）を時価¥8,500に評価替えする。全部純資産直入法によること（税効果は考慮しない）。",
+ entries:[{d:[["その他有価証券",500]],c:[["その他有価証券評価差額金",500]]}],
+ note:"その他有価証券も決算時に時価評価するが、すぐに売却する予定がないため評価差額を損益とせず、その他有価証券評価差額金（純資産）に直接計上する（全部純資産直入法）。売買目的＝損益、その他＝純資産、という評価差額の行き先の違いを必ず押さえる。",trap:["有価証券評価益","有価証券評価損","売買目的有価証券","繰延税金負債"]},
+{id:35,cat:"有価証券",q:"翌期首にあたり、前期末にその他有価証券について計上した評価差益¥500の再振替仕訳（振戻し）を行う。",
+ entries:[{d:[["その他有価証券評価差額金",500]],c:[["その他有価証券",500]]}],
+ note:"その他有価証券の評価差額は翌期首に必ず反対仕訳で取得原価に戻す（洗替法）。前期末に行った評価仕訳の貸借をそのまま逆にするだけでよい。",trap:["有価証券評価損","有価証券評価益","売買目的有価証券","繰延税金資産"]},
+{id:36,cat:"有価証券",q:"B社の発行済株式総数の60%にあたる株式を¥30,000で取得し、代金は小切手を振り出して支払った。",
+ entries:[{d:[["子会社株式",30000]],c:[["当座預金",30000]]}],
+ note:"発行済株式の50%超を取得するとその会社を支配することになるため、子会社株式（資産）で処理する。影響力の目安は、50%超＝子会社株式、20%以上50%以下＝関連会社株式、売買目的・その他＝保有目的による。持株比率と保有目的から科目を判定させる出題が多い。",trap:["関連会社株式","その他有価証券","売買目的有価証券","満期保有目的債券"]},
+{id:37,cat:"有価証券",q:"保有するその他有価証券について、配当金領収証¥300が送られてきた。",
+ entries:[{d:[["現金",300]],c:[["受取配当金",300]]}],
+ note:"配当金領収証は金融機関に持ち込めばすぐに換金できるため、通貨代用証券として現金勘定で処理する。相手科目は受取配当金（収益）。「現金で受け取った」と書かれていなくても現金勘定になる点がひっかけ。",trap:["当座預金","未収入金","有価証券利息","受取利息"]},
+{id:38,cat:"有価証券",q:"保有する社債について、支払期限の到来した利札¥200がある。",
+ entries:[{d:[["現金",200]],c:[["有価証券利息",200]]}],
+ note:"支払期限の到来した公社債の利札も通貨代用証券なので現金勘定で処理する。社債から生じた利息なので相手科目は受取利息ではなく有価証券利息（収益）。期限未到来の利札は現金にできない点も問われる。",trap:["受取利息","受取配当金","未収入金","当座預金"]},
+
+// ── 固定資産 (39–55) ──
+{id:39,cat:"固定資産",q:"建物¥50,000を購入し、仲介手数料¥2,000とともに小切手を振り出して支払った。",
+ entries:[{d:[["建物",52000]],c:[["当座預金",52000]]}],
+ note:"固定資産の取得原価＝購入代価＋付随費用。仲介手数料¥2,000を建物の取得原価に含めて¥52,000で計上する。付随費用（手数料・登記料・整地費用など）を費用処理しないことが固定資産の大原則。",trap:["支払手数料","修繕費","土地","建設仮勘定"]},
+{id:40,cat:"固定資産",q:"決算にあたり、備品（取得原価¥10,000、期首の減価償却累計額¥3,600）について、定率法（償却率20%）により減価償却を行う。記帳は間接法による。",
+ entries:[{d:[["減価償却費",1280]],c:[["備品減価償却累計額",1280]]}],
+ note:"定率法は期首帳簿価額（取得原価−期首減価償却累計額）に償却率を掛ける。（¥10,000−¥3,600）×20%＝¥1,280。間接法なので貸方は備品減価償却累計額。累計額を引き忘れて¥10,000×20%としないよう注意。",trap:["備品","建物減価償却累計額","固定資産除却損","減価償却累計額"]},
+{id:41,cat:"固定資産",q:"決算にあたり、車両（取得原価¥20,000、残存価額ゼロ、総走行可能距離10万km）について、生産高比例法により減価償却を行う。当期の走行距離は2万kmであった。",
+ entries:[{d:[["減価償却費",4000]],c:[["車両運搬具減価償却累計額",4000]]}],
+ note:"生産高比例法は、利用度合いに応じて償却する方法。取得原価×当期利用量÷総利用可能量＝¥20,000×2万km÷10万km＝¥4,000。車両や航空機など、総利用可能量を見積れる資産に適用される。残存価額がある場合は（取得原価−残存価額）に比率を掛ける。",trap:["車両運搬具","備品減価償却累計額","建物減価償却累計額","固定資産売却損"]},
+{id:42,cat:"固定資産",q:"決算（3月31日）にあたり、当期の12月1日に取得した備品¥12,000（耐用年数5年、残存価額ゼロ、定額法）について月割で減価償却を行う。",
+ entries:[{d:[["減価償却費",800]],c:[["備品減価償却累計額",800]]}],
+ note:"期中に取得した固定資産は、取得月から決算月までの月割りで償却する。12月1日〜3月31日は4か月なので、¥12,000÷5年×4か月/12か月＝¥800。月数の数え間違い（取得月を含める）に注意。",trap:["備品","建物減価償却累計額","未払金","前払費用"]},
+{id:43,cat:"固定資産",q:"期首に、備品（取得原価¥10,000、減価償却累計額¥6,000、間接法で記帳）を¥3,000で売却し、代金は月末に受け取ることとした。",
+ entries:[{d:[["備品減価償却累計額",6000],["未収入金",3000],["固定資産売却損",1000]],c:[["備品",10000]]}],
+ note:"間接法で記帳した固定資産の売却は、①備品を取得原価¥10,000で貸方から消す、②減価償却累計額¥6,000を借方で消す、③売却代金¥3,000を未収入金で計上する、④貸借差額を売却損益とする、の手順。帳簿価額¥4,000＞売却額¥3,000なので固定資産売却損¥1,000。",trap:["固定資産売却益","減価償却費","売掛金","雑損"]},
+{id:44,cat:"固定資産",q:"期首に、旧車両（取得原価¥15,000、減価償却累計額¥9,000）を¥5,000で下取りに出し、新車両¥20,000を購入した。下取価額を差し引いた残額は翌月末に支払う。",
+ entries:[{d:[["車両運搬具",20000],["車両運搬具減価償却累計額",9000],["固定資産売却損",1000]],c:[["車両運搬具",15000],["未払金",15000]]}],
+ note:"買換えは「旧車両の売却＋新車両の購入」を1本にまとめた取引。旧車両の帳簿価額¥6,000（＝¥15,000−¥9,000）を下取価額¥5,000で売却したと考えて売却損¥1,000。新車両¥20,000から下取価額を差し引いた残額¥15,000は、商品以外の未払いなので未払金（買掛金ではない）。",trap:["買掛金","固定資産売却益","減価償却費","前払金"]},
+{id:45,cat:"固定資産",q:"備品（取得原価¥8,000、減価償却累計額¥7,000）を除却した。この備品の処分価値は¥400と見積もられた。",
+ entries:[{d:[["貯蔵品",400],["備品減価償却累計額",7000],["固定資産除却損",600]],c:[["備品",8000]]}],
+ note:"除却は固定資産を事業の用途から取り除くこと。見積処分価値¥400はスクラップとしての価値なので貯蔵品（資産）に計上し、帳簿価額¥1,000との差額¥600を固定資産除却損とする。処分価値の分だけ損失が小さくなる構造を理解する。",trap:["固定資産売却損","雑損","火災損失","未収入金"]},
+{id:46,cat:"固定資産",q:"建設中の店舗用建物について、工事代金の一部¥10,000を小切手を振り出して支払った。",
+ entries:[{d:[["建設仮勘定",10000]],c:[["当座預金",10000]]}],
+ note:"建設中の建物への支払額は、まだ完成・使用していないため建物勘定ではなく建設仮勘定（資産）に集計する。建設仮勘定は使用前の資産なので減価償却の対象にならない点もあわせて覚える。",trap:["建物","前払金","修繕費","土地"]},
+{id:47,cat:"固定資産",q:"建設を依頼していた建物が完成し、引渡しを受けた。工事代金¥50,000のうち¥30,000はすでに建設仮勘定に計上済みであり、残額¥20,000は小切手を振り出して支払った。",
+ entries:[{d:[["建物",50000]],c:[["建設仮勘定",30000],["当座預金",20000]]}],
+ note:"建物の完成・引渡しを受けた時点で、それまでの建設仮勘定¥30,000を建物勘定へ振り替え、追加支払額¥20,000と合わせて取得原価¥50,000とする。減価償却は完成時ではなく使用開始日から行う。",trap:["前払金","未払金","修繕費","建物減価償却累計額"]},
+{id:48,cat:"固定資産",q:"建物の改修工事を行い、代金¥5,000を現金で支払った。このうち¥3,000は建物の価値を高める資本的支出であり、残りは収益的支出である。",
+ entries:[{d:[["建物",3000],["修繕費",2000]],c:[["現金",5000]]}],
+ note:"資産の価値を高めたり耐用年数を延ばしたりする支出（改良）は資本的支出として建物に計上し、元の状態を維持するための支出（修理）は収益的支出として修繕費（費用）で処理する。¥3,000を建物、残り¥2,000を修繕費に分ける。両者の区別はこの論点の核心。",trap:["建物減価償却累計額","減価償却費","消耗品費","建設仮勘定"]},
+{id:49,cat:"固定資産",q:"備品購入のための国庫補助金¥10,000を受け取り、当座預金口座に入金された。",
+ entries:[{d:[["当座預金",10000]],c:[["国庫補助金受贈益",10000]]}],
+ note:"国庫補助金を受け取った時点では国庫補助金受贈益（収益）を計上する。このままでは受贈益に課税されて補助金の効果が薄れるため、資産の取得後に圧縮記帳（第50問）を行って課税を将来へ繰り延べる、という一連の流れで理解する。",trap:["固定資産圧縮損","備品","雑益","前受金"]},
+{id:50,cat:"固定資産",q:"国庫補助金¥10,000を充当して備品¥25,000を取得し、代金は小切手を振り出して支払った。また、補助金相当額について直接控除方式により圧縮記帳を行った。",
+ entries:[{d:[["備品",25000]],c:[["当座預金",25000]]},{d:[["固定資産圧縮損",10000]],c:[["備品",10000]]}],
+ note:"直接控除方式の圧縮記帳では、補助金相当額¥10,000を固定資産圧縮損（費用）として計上し、同額だけ備品を直接減額する。圧縮損が受贈益と相殺されて当期の課税が繰り延べられる仕組み。以後の減価償却は圧縮後の帳簿価額¥15,000をもとに計算する点が次のひっかけになる。",trap:["国庫補助金受贈益","減価償却費","備品減価償却累計額","雑損"]},
+{id:51,cat:"固定資産",q:"期首に備品のファイナンス・リース契約（年間リース料¥2,400、期間5年）を結んだ。利子込み法によること。",
+ entries:[{d:[["リース資産",12000]],c:[["リース債務",12000]]}],
+ note:"ファイナンス・リースは、実質的には資産を購入して代金を分割払いするのと同じため、リース資産とリース債務を計上する（売買処理）。利子込み法では利息を区別せず、リース料総額¥2,400×5年＝¥12,000で計上する。",trap:["支払利息","支払リース料","前払費用","備品"]},
+{id:52,cat:"固定資産",q:"利子込み法で処理しているリース契約について、1年分のリース料¥2,400を当座預金から支払った。",
+ entries:[{d:[["リース債務",2400]],c:[["当座預金",2400]]}],
+ note:"利子込み法では債務の中に利息が含まれているため、リース料支払額¥2,400の全額をリース債務の減少とする。支払利息は一切登場しない。利子抜き法（第54問）との違いを対比して覚える。",trap:["支払利息","支払リース料","未払金","リース資産"]},
+{id:53,cat:"固定資産",q:"期首に備品のファイナンス・リース契約（リース料総額¥12,000、見積現金購入価額¥10,000、期間5年）を結んだ。利子抜き法によること。",
+ entries:[{d:[["リース資産",10000]],c:[["リース債務",10000]]}],
+ note:"利子抜き法では、リース料総額から利息相当額を除いた見積現金購入価額¥10,000でリース資産・リース債務を計上する。総額¥12,000との差額¥2,000が、リース期間全体で負担する利息になる。",trap:["支払利息","支払リース料","前払費用","備品"]},
+{id:54,cat:"固定資産",q:"利子抜き法で処理しているリース契約（リース料総額¥12,000、リース債務計上額¥10,000、期間5年）について、1年分のリース料¥2,400を当座預金から支払った。利息相当額は定額法で配分する。",
+ entries:[{d:[["リース債務",2000],["支払利息",400]],c:[["当座預金",2400]]}],
+ note:"利息総額¥2,000（＝¥12,000−¥10,000）を5年で定額配分すると年¥400。支払額¥2,400のうち¥400を支払利息とし、残り¥2,000をリース債務の返済に充てる。「支払額＝元本返済＋利息」という分解は借入金の返済と同じ感覚。",trap:["支払リース料","未払費用","リース資産","前払費用"]},
+{id:55,cat:"固定資産",q:"オペレーティング・リース取引により借りている備品について、1年分のリース料¥1,500を当座預金から支払った。",
+ entries:[{d:[["支払リース料",1500]],c:[["当座預金",1500]]}],
+ note:"ファイナンス・リース以外のリースはオペレーティング・リースとして賃貸借処理する。資産・債務は計上せず、支払額を支払リース料（費用）とするだけ。売買処理（F/L）か賃貸借処理（O/L)かの判定が第一関門。",trap:["リース資産","リース債務","支払利息","賃借料"]},
+
+// ── 無形固定資産・研究開発 (56–60) ──
+{id:56,cat:"無形固定資産",q:"自社利用目的のソフトウェア¥6,000を購入し、代金は小切手を振り出して支払った。",
+ entries:[{d:[["ソフトウェア",6000]],c:[["当座預金",6000]]}],
+ note:"自社利用目的のソフトウェアは、将来の収益獲得または費用削減が確実と認められる場合、無形固定資産として資産計上する。購入時に費用処理しない点に注意。",trap:["研究開発費","消耗品費","特許権","のれん"]},
+{id:57,cat:"無形固定資産",q:"決算にあたり、当期首に取得したソフトウェア（取得原価¥6,000、利用可能期間5年）を定額法により償却する。",
+ entries:[{d:[["ソフトウェア償却",1200]],c:[["ソフトウェア",1200]]}],
+ note:"無形固定資産の償却は、①残存価額ゼロ、②原則として定額法、③記帳は直接法（累計額勘定を使わず資産から直接減額）。¥6,000÷5年＝¥1,200をソフトウェア勘定から直接減らす。有形固定資産（間接法が多い）との記帳方法の違いがポイント。",trap:["減価償却費","研究開発費","特許権","のれん償却"]},
+{id:58,cat:"無形固定資産",q:"研究開発専用の測定機器¥8,000を購入し、代金は現金で支払った。この機器は他の用途には使用しない。",
+ entries:[{d:[["研究開発費",8000]],c:[["現金",8000]]}],
+ note:"研究開発専用にしか使えない固定資産は、購入時に全額を研究開発費（費用）として処理する。資産計上して減価償却するのではない点が最大のひっかけ。汎用性があり他の用途にも使えるなら、通常どおり資産計上する。",trap:["備品","機械装置","消耗品費","ソフトウェア"]},
+{id:59,cat:"無形固定資産",q:"特許権を¥7,000で取得し、代金は小切手を振り出して支払った。",
+ entries:[{d:[["特許権",7000]],c:[["当座預金",7000]]}],
+ note:"特許権・商標権などの法律上の権利は無形固定資産として資産計上する。取得後は残存価額ゼロ・定額法・直接法で償却する（第57問のソフトウェアと同じルール）。",trap:["研究開発費","ソフトウェア","のれん","商標権"]},
+{id:60,cat:"無形固定資産",q:"決算にあたり、のれん¥10,000（計上後10年間で均等償却する方針）について当期分の償却を行う。",
+ entries:[{d:[["のれん償却",1000]],c:[["のれん",1000]]}],
+ note:"のれんは合併・買収で生じた超過収益力を表す無形固定資産で、計上後20年以内に定額法その他合理的な方法で規則的に償却する。¥10,000÷10年＝¥1,000。直接法なので貸方はのれん勘定そのもの。",trap:["減価償却費","負ののれん発生益","研究開発費","ソフトウェア償却"]},
+
+// ── 引当金 (61–68) ──
+{id:61,cat:"引当金",q:"決算にあたり、売掛金の期末残高¥50,000に対して2%の貸倒引当金を差額補充法により設定する。貸倒引当金の残高は¥600である。",
+ entries:[{d:[["貸倒引当金繰入",400]],c:[["貸倒引当金",400]]}],
+ note:"差額補充法では、必要額と現在の引当金残高との差額だけを繰り入れる。必要額は¥50,000×2%＝¥1,000、残高が¥600なので繰入額は¥1,000−¥600＝¥400。必要額をそのまま繰り入れないよう注意。",trap:["貸倒引当金戻入","貸倒損失","売掛金","償却債権取立益"]},
+{id:62,cat:"引当金",q:"決算にあたり貸倒引当金の必要額を計算したところ¥800であった。貸倒引当金の残高は¥1,000である（差額補充法）。",
+ entries:[{d:[["貸倒引当金",200]],c:[["貸倒引当金戻入",200]]}],
+ note:"引当金の残高¥1,000が必要額¥800を上回る場合は、超過分¥200を貸倒引当金戻入（収益）として戻し入れる。繰入（第61問）と逆方向の仕訳で、残高と必要額の大小関係をまず比べることが手順の第一歩。",trap:["貸倒引当金繰入","貸倒損失","雑益","償却債権取立益"]},
+{id:63,cat:"引当金",q:"決算にあたり、翌期に行う予定の建物の修繕に備えて、修繕引当金¥3,000を設定する。",
+ entries:[{d:[["修繕引当金繰入",3000]],c:[["修繕引当金",3000]]}],
+ note:"翌期に行う修繕でも、その原因（当期の使用による損耗）が当期にあるなら、当期の費用として見積計上する。仕訳は「修繕引当金繰入（費用）／修繕引当金（負債）」。引当金設定の基本形はどの引当金でも共通。",trap:["修繕費","未払金","建物","賞与引当金繰入"]},
+{id:64,cat:"引当金",q:"建物の修繕を行い、代金¥5,000を小切手を振り出して支払った。なお、修繕引当金の残高が¥3,000ある。",
+ entries:[{d:[["修繕引当金",3000],["修繕費",2000]],c:[["当座預金",5000]]}],
+ note:"実際に修繕を行ったときは、まず設定済みの修繕引当金¥3,000を取り崩し、引当金を超える¥2,000だけを当期の修繕費（費用）とする。「引当金でカバーされる分＋当期費用」という分け方は賞与引当金（第66問）でも同じ。",trap:["修繕引当金繰入","建物","未払金","減価償却費"]},
+{id:65,cat:"引当金",q:"決算にあたり、翌期に支給する従業員賞与に備えて、当期負担分¥6,000を賞与引当金として設定する。",
+ entries:[{d:[["賞与引当金繰入",6000]],c:[["賞与引当金",6000]]}],
+ note:"翌期に支給する賞与のうち、当期の労働に対応する部分¥6,000を当期の費用として見積計上する。仕訳の形は「賞与引当金繰入（費用）／賞与引当金（負債）」で、修繕引当金（第63問）と同じ基本形。",trap:["賞与","給料","未払金","従業員預り金"]},
+{id:66,cat:"引当金",q:"従業員に賞与¥9,000を現金で支給した。このうち¥6,000は前期末に賞与引当金として設定済みである。",
+ entries:[{d:[["賞与引当金",6000],["賞与",3000]],c:[["現金",9000]]}],
+ note:"賞与¥9,000のうち、前期末に引当金を設定済みの¥6,000は賞与引当金の取崩しとし、当期負担分¥3,000だけを賞与（費用）とする。全額を費用にしないこと。引当金がいくら設定されているかを問題文から正確に読み取る。",trap:["賞与引当金繰入","給料","未払金","所得税預り金"]},
+{id:67,cat:"引当金",q:"決算にあたり、当期に販売した商品の無償修理保証に備えて、商品保証引当金¥1,000を設定する。",
+ entries:[{d:[["商品保証引当金繰入",1000]],c:[["商品保証引当金",1000]]}],
+ note:"当期に販売した商品の無償修理は、当期の売上に対応する将来の費用なので、決算で見積額を商品保証引当金繰入（費用）／商品保証引当金（負債）として計上する。翌期に実際に修理したときは引当金を取り崩す。",trap:["修繕費","未払金","売上","仕入"]},
+{id:68,cat:"引当金",q:"従業員の退職にあたり、退職金¥8,000を当座預金から支払った。なお、退職給付引当金の残高は¥20,000ある。",
+ entries:[{d:[["退職給付引当金",8000]],c:[["当座預金",8000]]}],
+ note:"退職給付引当金は、従業員の退職金支払いに備えて毎期の決算で積み立ててきた負債。実際に退職金を支払ったときは、この引当金の取崩しとして処理する。費用（退職給付費用）は毎期の繰入時にすでに計上済みなので、支払時には費用が出てこない。",trap:["退職給付費用","給料","賞与引当金","未払金"]},
+
+// ── 純資産 (69–78) ──
+{id:69,cat:"純資産",q:"会社の設立にあたり、株式100株を1株¥100で発行し、払込金は全額当座預金とした。資本金は会社法の原則による。",
+ entries:[{d:[["当座預金",10000]],c:[["資本金",10000]]}],
+ note:"会社法の原則では、株式の払込金額の全額を資本金とする。100株×@¥100＝¥10,000がそのまま資本金になる。",trap:["資本準備金","利益準備金","別段預金","株式申込証拠金"]},
+{id:70,cat:"純資産",q:"会社の設立にあたり、株式100株を1株¥100で発行し、払込金は全額当座預金とした。資本金は会社法が認める最低額とする。",
+ entries:[{d:[["当座預金",10000]],c:[["資本金",5000],["資本準備金",5000]]}],
+ note:"会社法では、払込金額の2分の1までは資本金に組み入れないことが認められ、組み入れなかった部分は資本準備金とする。「会社法が認める最低額」とあれば、資本金¥5,000・資本準備金¥5,000と半分ずつに分ける。",trap:["利益準備金","その他資本剰余金","繰越利益剰余金","別段預金"]},
+{id:71,cat:"純資産",q:"増資のため株式80株を1株¥100で募集したところ全株式が申し込まれ、申込期日に払込金額の全額を申込証拠金として受け取り、別段預金とした。",
+ entries:[{d:[["別段預金",8000]],c:[["株式申込証拠金",8000]]}],
+ note:"株式の申込時に受け取った払込金は、割当てまでは返還する可能性があるため、資本金とせず株式申込証拠金で処理する。資金も通常の預金と区別して別段預金（資産）に入れておく。「証拠金」と「別段預金」はセットで登場する。",trap:["当座預金","資本金","資本準備金","仮受金"]},
+{id:72,cat:"純資産",q:"払込期日となったので、申込証拠金¥8,000を資本金（全額）に振り替え、同時に別段預金を当座預金に預け替えた。",
+ entries:[{d:[["株式申込証拠金",8000]],c:[["資本金",8000]]},{d:[["当座預金",8000]],c:[["別段預金",8000]]}],
+ note:"払込期日が来たら、①株式申込証拠金→資本金、②別段預金→当座預金、の2本の振替仕訳を行う。資本金に振り替わるタイミングは申込時ではなく「払込期日」であることを押さえる。",trap:["仮受金","利益準備金","現金","資本準備金"]},
+{id:73,cat:"純資産",q:"増資にあたり、株式の発行費用¥500を現金で支払った。",
+ entries:[{d:[["株式交付費",500]],c:[["現金",500]]}],
+ note:"株式の発行費用は場面で科目が変わる。増資のとき＝株式交付費、会社設立のとき＝創立費、設立後・開業前の準備費用＝開業費。本問は増資なので株式交付費（費用）。",trap:["創立費","開業費","支払手数料","雑費"]},
+{id:74,cat:"純資産",q:"株主総会において、繰越利益剰余金から株主への配当¥5,000と、利益準備金の積立て¥500（会社法の要件を満たす額）が決議された。",
+ entries:[{d:[["繰越利益剰余金",5500]],c:[["未払配当金",5000],["利益準備金",500]]}],
+ note:"株主総会で配当が決議された時点では、まだ支払っていないので未払配当金（負債）を計上する。同時に会社法の定めにより利益準備金¥500を積み立て、繰越利益剰余金は配当額と準備金の合計¥5,500だけ減らす。決議時と支払時（第75問）の2段階処理。",trap:["当座預金","資本準備金","別途積立金","現金"]},
+{id:75,cat:"純資産",q:"株主総会で決議された配当金¥5,000を、当座預金から支払った。",
+ entries:[{d:[["未払配当金",5000]],c:[["当座預金",5000]]}],
+ note:"配当金を実際に支払ったときは、決議時に計上した未払配当金（負債）を取り崩すだけ。繰越利益剰余金はすでに決議時に減らしているため、ここでは動かさない。",trap:["繰越利益剰余金","利益準備金","資本金","現金"]},
+{id:76,cat:"純資産",q:"決算において当期純損失¥2,000を計上した。損益勘定から適切な勘定へ振り替える。",
+ entries:[{d:[["繰越利益剰余金",2000]],c:[["損益",2000]]}],
+ note:"損益勘定で計算された当期純損失は、繰越利益剰余金を減らす方向で振り替える。借方が繰越利益剰余金、貸方が損益となり、純利益のとき（第77問）と貸借が逆になる。",trap:["利益準備金","資本金","雑損","別途積立金"]},
+{id:77,cat:"純資産",q:"決算において損益勘定の貸方残高（当期純利益）¥7,000を適切な勘定へ振り替える。",
+ entries:[{d:[["損益",7000]],c:[["繰越利益剰余金",7000]]}],
+ note:"当期純利益は、損益勘定（貸方残高）から繰越利益剰余金（純資産）へ振り替える。「利益は最終的に株主のものとして純資産を増やす」という流れで覚えると貸借を間違えない。",trap:["利益準備金","資本金","未払配当金","雑益"]},
+{id:78,cat:"純資産",q:"株主総会において、繰越利益剰余金から別途積立金¥1,000を積み立てることが決議された。",
+ entries:[{d:[["繰越利益剰余金",1000]],c:[["別途積立金",1000]]}],
+ note:"別途積立金などの任意積立金の積立ては、繰越利益剰余金からの振替えで行う。純資産の内部での移動なので、純資産の合計額は変わらない。",trap:["利益準備金","資本準備金","未払配当金","損益"]},
+
+// ── 税金・税効果 (79–86) ──
+{id:79,cat:"税金・税効果",q:"法人税等の中間申告を行い、¥3,000を現金で納付した。",
+ entries:[{d:[["仮払法人税等",3000]],c:[["現金",3000]]}],
+ note:"中間納付の時点では当期の税額が確定していないため、納付額¥3,000を仮払法人税等（資産）として処理しておく。決算で年税額が確定したとき（第80問）に精算される。",trap:["法人税、住民税及び事業税","未払法人税等","租税公課","仮受金"]},
+{id:80,cat:"税金・税効果",q:"決算において、当期の法人税、住民税及び事業税が¥7,000と確定した。なお、中間納付額¥3,000が仮払法人税等として計上されている。",
+ entries:[{d:[["法人税、住民税及び事業税",7000]],c:[["仮払法人税等",3000],["未払法人税等",4000]]}],
+ note:"決算で年税額¥7,000が確定したら、法人税、住民税及び事業税（費用）を計上する。中間納付済みの仮払法人税等¥3,000を充当し、残額¥4,000を未払法人税等（負債）とする。「費用は年額、貸方は仮払の取崩し＋未払」という3点セット。",trap:["租税公課","仮受金","未収還付法人税等","当座預金"]},
+{id:81,cat:"税金・税効果",q:"商品¥10,000（税抜価格）を仕入れ、消費税¥1,000とともに掛けとした。税抜方式によること。",
+ entries:[{d:[["仕入",10000],["仮払消費税",1000]],c:[["買掛金",11000]]}],
+ note:"税抜方式では、本体価格と消費税を分けて記帳する。支払った消費税¥1,000は仮払消費税（資産）とし、仕入は税抜の¥10,000で計上する。買掛金は税込の¥11,000。",trap:["仮受消費税","未払消費税","租税公課","立替金"]},
+{id:82,cat:"税金・税効果",q:"商品¥20,000（税抜価格）を販売し、消費税¥2,000とともに掛けとした。税抜方式によること。",
+ entries:[{d:[["売掛金",22000]],c:[["売上",20000],["仮受消費税",2000]]}],
+ note:"受け取った消費税¥2,000は仮受消費税（負債）とし、売上は税抜の¥20,000で計上する。売掛金は税込の¥22,000。仮払消費税（第81問）と対になる処理。",trap:["仮払消費税","未払消費税","従業員預り金","租税公課"]},
+{id:83,cat:"税金・税効果",q:"決算において、消費税の納付額を計算する。仮受消費税の残高は¥2,000、仮払消費税の残高は¥1,000である。",
+ entries:[{d:[["仮受消費税",2000]],c:[["仮払消費税",1000],["未払消費税",1000]]}],
+ note:"決算では、預かった仮受消費税¥2,000と支払った仮払消費税¥1,000を相殺し、差額¥1,000を未払消費税（負債）として納付に備える。仮払の方が多い場合は未収還付消費税（資産）となる。",trap:["租税公課","未収還付消費税","雑益","法人税、住民税及び事業税"]},
+{id:84,cat:"税金・税効果",q:"決算において、貸倒引当金繰入¥1,000が税法上の損金として認められなかった。法人税等の実効税率30%として税効果会計を適用する。",
+ entries:[{d:[["繰延税金資産",300]],c:[["法人税等調整額",300]]}],
+ note:"会計上は費用なのに税務上は損金と認められない（損金不算入）と、その分だけ税金を多く前払いした状態になる。将来、引当金が取り崩されて損金になるときに税金が減るため、¥1,000×実効税率30%＝¥300を繰延税金資産（資産）として計上し、貸方は法人税等調整額とする。",trap:["繰延税金負債","法人税、住民税及び事業税","未払法人税等","貸倒引当金"]},
+{id:85,cat:"税金・税効果",q:"前期に税効果会計を適用した貸倒引当金（繰延税金資産¥300を計上済み）について、当期に売掛金が実際に貸し倒れたため一時差異が解消した。税効果に関する仕訳を行う。",
+ entries:[{d:[["法人税等調整額",300]],c:[["繰延税金資産",300]]}],
+ note:"貸倒れが実際に発生して税務上も損金と認められた時点で一時差異が解消する。計上していた繰延税金資産¥300を取り崩し、計上時（第84問）と貸借逆の仕訳を行う。税効果は「差異の発生時に計上、解消時に取崩し」のセットで覚える。",trap:["繰延税金負債","法人税、住民税及び事業税","貸倒引当金繰入","雑損"]},
+{id:86,cat:"税金・税効果",q:"固定資産税¥2,000の納税通知書を受け取り、ただちに全額を現金で納付した。",
+ entries:[{d:[["租税公課",2000]],c:[["現金",2000]]}],
+ note:"固定資産税・印紙税・自動車税などは費用となる税金で、租税公課（費用）で処理する。利益に対して課される法人税・住民税・事業税（法人税等）とは性格が異なるため、科目を混同しないこと。",trap:["法人税、住民税及び事業税","仮払法人税等","未払法人税等","仮払消費税"]},
+
+// ── 外貨建取引 (87–91) ──
+{id:87,cat:"外貨建取引",q:"米国の仕入先から商品100ドルを掛けで仕入れた。仕入時の為替相場は1ドル¥110である。",
+ entries:[{d:[["仕入",11000]],c:[["買掛金",11000]]}],
+ note:"外貨建取引は、取引発生時の為替相場で円換算して記帳する。100ドル×¥110＝¥11,000。この時点では為替差損益は生じない。",trap:["為替差損益","前払金","仮払金","未払金"]},
+{id:88,cat:"外貨建取引",q:"外貨建ての買掛金100ドル（仕入時の相場1ドル¥110で計上）を決済し、当座預金から支払った。決済時の為替相場は1ドル¥112である。",
+ entries:[{d:[["買掛金",11000],["為替差損益",200]],c:[["当座預金",11200]]}],
+ note:"決済時に相場が¥112へ上がった（円安になった）ため、支払う円貨は100ドル×¥112＝¥11,200に増えた。計上していた買掛金¥11,000との差額¥200は為替差損（借方の為替差損益）。「円安は外貨建ての支払いに不利」という感覚で検算できる。",trap:["支払利息","仕入","雑損","前払金"]},
+{id:89,cat:"外貨建取引",q:"決算において、外貨建ての売掛金200ドル（取引時の相場1ドル¥110で計上）を決算時の相場1ドル¥115で換算替えする。",
+ entries:[{d:[["売掛金",1000]],c:[["為替差損益",1000]]}],
+ note:"外貨建ての金銭債権債務は、決算時の相場で換算替えする。200ドル×（¥115−¥110）＝¥1,000だけ売掛金（資産）が増えるので為替差益（貸方の為替差損益）。資産が増えれば差益、負債が増えれば差損になる。",trap:["売上","雑益","前受金","受取利息"]},
+{id:90,cat:"外貨建取引",q:"外貨建ての買掛金100ドル（1ドル¥110で計上済み）について、1ドル¥108で為替予約を行った。振当処理によることとし、差額はすべて当期の損益とする。",
+ entries:[{d:[["買掛金",200]],c:[["為替差損益",200]]}],
+ note:"為替予約を付すと、その債権債務の決済額が予約レートで固定される。買掛金を¥110から予約レート¥108で換算し直し、100ドル×¥2＝¥200の負債の減少分を為替差損益（貸方＝差益）とする。以後、決済時に為替差損益は生じない。",trap:["前払費用","支払手数料","雑益","仕入"]},
+{id:91,cat:"外貨建取引",q:"米国の仕入先に商品の注文を行い、前払金として50ドルを現金で支払った。支払時の為替相場は1ドル¥100である。",
+ entries:[{d:[["前払金",5000]],c:[["現金",5000]]}],
+ note:"前払金の支払いも取引時のレートで換算する（50ドル×¥100＝¥5,000）。ただし前払金・前受金は金銭債権債務ではない（商品で決済される）ため、決算時に換算替えをしない。この「換算替え不要」が本論点最大のひっかけ。",trap:["仮払金","仕入","買掛金","為替差損益"]},
+
+// ── 合併・本支店 (92–95) ──
+{id:92,cat:"合併・本支店",q:"C社を吸収合併し、諸資産¥50,000と諸負債¥20,000を引き継いだ。対価としてC社株主に当社株式350株（1株あたりの時価¥100）を交付し、全額を資本金とした。",
+ entries:[{d:[["諸資産",50000],["のれん",5000]],c:[["諸負債",20000],["資本金",35000]]}],
+ note:"吸収合併では、受け入れた資産・負債を時価で計上し、対価（交付株式の時価350株×@¥100＝¥35,000）との差額をのれんとする。受入純資産¥30,000＜対価¥35,000なので、多く支払った¥5,000がのれん（資産）。「高く買った分＝超過収益力への対価」と理解する。",trap:["負ののれん発生益","資本準備金","特許権","子会社株式"]},
+{id:93,cat:"合併・本支店",q:"D社を吸収合併し、諸資産¥40,000と諸負債¥10,000を引き継いだ。対価として当社株式（時価総額¥28,000）を交付し、全額を資本金とした。",
+ entries:[{d:[["諸資産",40000]],c:[["諸負債",10000],["資本金",28000],["負ののれん発生益",2000]]}],
+ note:"受入純資産¥30,000より対価¥28,000の方が小さい（安く買収できた）場合、差額¥2,000は負ののれん発生益（収益）として当期の利益に計上する。のれん（資産計上して20年以内に償却）と負ののれん（即収益）の処理の違いが問われる。",trap:["のれん","資本準備金","雑益","固定資産売却益"]},
+{id:94,cat:"合併・本支店",q:"本店は支店に現金¥5,000を送付した。本店側の仕訳を示しなさい。",
+ entries:[{d:[["支店",5000]],c:[["現金",5000]]}],
+ note:"本支店会計では、本店は支店との貸し借りを支店勘定で処理する。現金を送った本店は、支店に対する債権（投資）が増えるので借方が支店。",trap:["本店","売掛金","貸付金","当座預金"]},
+{id:95,cat:"合併・本支店",q:"支店は本店から現金¥5,000を受け取った。支店側の仕訳を示しなさい。",
+ entries:[{d:[["現金",5000]],c:[["本店",5000]]}],
+ note:"支店は本店との貸し借りを本店勘定で処理する。現金を受け取った支店は本店に対する債務が増えるため貸方が本店。本店側の支店勘定（第94問）と貸借逆で必ず一致する関係（照合勘定）にある。",trap:["支店","買掛金","借入金","従業員預り金"]},
+
+// ── 決算整理・その他 (96–100) ──
+{id:96,cat:"決算整理・その他",q:"決算にあたり、受取家賃¥1,200のうち¥400は次期分であることが判明した。",
+ entries:[{d:[["受取家賃",400]],c:[["前受家賃",400]]}],
+ note:"受け取った家賃¥1,200のうち次期分¥400は当期の収益にできないため、受取家賃から差し引いて前受家賃（前受収益・負債）へ振り替える。経過勘定（前払費用・前受収益・未収収益・未払費用）の基本形で、翌期首に再振替仕訳を行う。",trap:["前払家賃","未収家賃","未払家賃","支払家賃"]},
+{id:97,cat:"決算整理・その他",q:"決算にあたり売上原価を仕入勘定で算定する。期首商品棚卸高は¥2,000、期末商品棚卸高は¥3,000である。",
+ entries:[{d:[["仕入",2000]],c:[["繰越商品",2000]]},{d:[["繰越商品",3000]],c:[["仕入",3000]]}],
+ note:"三分法の売上原価算定、いわゆる「しーくり・くりしー」。①期首商品¥2,000を繰越商品から仕入へ振り替え（しーくり）、②期末商品¥3,000を仕入から繰越商品へ振り替える（くりしー）。これで仕入勘定の残高が売上原価（期首＋当期仕入−期末）になる。",trap:["商品","売上原価","棚卸減耗損","商品評価損"]},
+{id:98,cat:"決算整理・その他",q:"決算にあたり、購入時に費用処理した収入印紙のうち¥500が未使用のまま残っていることが判明した。",
+ entries:[{d:[["貯蔵品",500]],c:[["租税公課",500]]}],
+ note:"購入時に費用処理した収入印紙や郵便切手のうち、期末に未使用のものは貯蔵品（資産）へ振り替える。収入印紙は租税公課から、郵便切手は通信費からの振替えになる。翌期首には再振替仕訳で費用に戻す。",trap:["通信費","消耗品費","前払費用","雑損"]},
+{id:99,cat:"決算整理・その他",q:"社会保険料¥2,000を現金で納付した。このうち¥1,000は従業員の給料から預かっていたものであり、残額¥1,000は会社負担分である。",
+ entries:[{d:[["社会保険料預り金",1000],["法定福利費",1000]],c:[["現金",2000]]}],
+ note:"社会保険料は、従業員負担分と会社負担分を会社がまとめて納付する。給料から天引きして預かっていた従業員負担分¥1,000は社会保険料預り金（負債）の取崩し、会社負担分¥1,000は法定福利費（費用）とする。2つの性格の違う支払いが1本になっている点を見抜く。",trap:["所得税預り金","給料","福利厚生費","立替金"]},
+{id:100,cat:"決算整理・その他",q:"火災により建物（取得原価¥20,000、減価償却累計額¥12,000、間接法で記帳）が焼失した。この建物には¥10,000の火災保険を掛けており、保険会社に保険金を請求した。",
+ entries:[{d:[["建物減価償却累計額",12000],["未決算",8000]],c:[["建物",20000]]}],
+ note:"保険を掛けた資産が焼失したときは、受け取れる保険金額が確定するまで損益を計上できないため、焼失資産の帳簿価額¥8,000（＝¥20,000−¥12,000）をいったん未決算（資産）としておく。保険金確定時に、確定額との差額を保険差益（収益）または火災損失（費用）とする。保険未加入なら直ちに全額を火災損失とする。",trap:["火災損失","保険差益","雑損","未収入金"]},
+];
+
+// ───────────────────────────────────────────────
+// アプリ本体
+// ───────────────────────────────────────────────
+// ───────────────────────────────────────────────
+// ★ アフィリエイト設定（ここを編集してください）★
+// ASPで広告リンクを取得したら、url:"" の中に貼り付けます。
+// urlが空のままの項目は「準備中」と表示されます。
+// 項目の追加・削除も自由です。
+// ───────────────────────────────────────────────
+const AFFILIATE_ITEMS = [
+  {name:"簿記2級 通信講座",
+   desc:"独学でつまずいたら。スマホで完結する通信講座は、仕訳アプリとの相性も抜群です。",
+   url:""},
+  {name:"簿記2級 テキスト・問題集",
+   desc:"定番の市販テキスト。本サイトの100問と並行して進めると効果的です。",
+   url:""},
+  {name:"本試験形式の予想問題集",
+   desc:"仕訳をマスターしたら、最後は時間を計って本試験形式の演習を。",
+   url:""},
+];
+
+const STORAGE_KEY = "boki2-shiwake-mastered-v1";
+let mastered = new Set();
+let memoryOnly = false;
+let currentQ = null;
+let view = "practice";
+
+const $ = id => document.getElementById(id);
+const yen = n => "¥" + n.toLocaleString("ja-JP");
+
+// 利用可能な保存先を安全に判定（claude.ai → ブラウザ → メモリ）
+function getLocal(){
+  try{
+    const t = "__boki_test__";
+    window.localStorage.setItem(t, "1");
+    window.localStorage.removeItem(t);
+    return window.localStorage;
+  }catch(e){ return null; }
+}
+async function loadMastered(){
+  try{
+    if(window.storage && window.storage.get){
+      const r = await window.storage.get(STORAGE_KEY);
+      if(r && r.value) mastered = new Set(JSON.parse(r.value));
+      return;
+    }
+  }catch(e){ /* claude.ai保存が使えない場合は次へ */ }
+  const ls = getLocal();
+  if(ls){
+    try{
+      const v = ls.getItem(STORAGE_KEY);
+      if(v) mastered = new Set(JSON.parse(v));
+      return;
+    }catch(e){}
+  }
+  memoryOnly = true;
+}
+async function saveMastered(){
+  try{
+    if(window.storage && window.storage.set){
+      await window.storage.set(STORAGE_KEY, JSON.stringify([...mastered]));
+      return;
+    }
+  }catch(e){}
+  const ls = getLocal();
+  if(ls){
+    try{ ls.setItem(STORAGE_KEY, JSON.stringify([...mastered])); return; }catch(e){}
+  }
+  memoryOnly = true;
+}
+
+function remaining(){ return QUESTIONS.filter(q => !mastered.has(q.id)); }
+
+function updateProgress(){
+  const m = mastered.size;
+  $("masteredCount").textContent = m;
+  $("remainCount").textContent = "残り " + (100 - m) + "問";
+  $("progressBar").style.width = m + "%";
+}
+
+function buildJournalHTML(q){
+  if(q.none){
+    return '<div class="no-entry serif">仕 訳 な し</div>';
+  }
+  let out = "";
+  q.entries.forEach(en => {
+    const rows = Math.max(en.d.length, en.c.length);
+    let html = '<div class="journal-block"><table class="journal"><thead><tr><th style="width:32%">借方科目</th><th class="amt">金額</th><th class="div" style="width:32%">貸方科目</th><th class="amt">金額</th></tr></thead><tbody>';
+    for(let i=0;i<rows;i++){
+      const d = en.d[i], c = en.c[i];
+      html += "<tr>"
+        + "<td>" + (d ? d[0] : "") + "</td>"
+        + '<td class="amt">' + (d ? yen(d[1]) : "") + "</td>"
+        + '<td class="div">' + (c ? c[0] : "") + "</td>"
+        + '<td class="amt">' + (c ? yen(c[1]) : "") + "</td>"
+        + "</tr>";
+    }
+    html += "</tbody></table></div>";
+    out += html;
+  });
+  return out;
+}
+
+function renderJournal(q){
+  $("journalArea").innerHTML = buildJournalHTML(q);
+  const note = $("noteArea");
+  if(q.note){ note.textContent = "💡 " + q.note; note.hidden = false; }
+  else{ note.hidden = true; }
+}
+
+// ── 答案入力・採点 ──
+// 同義として正解扱いする勘定科目（どちらで答えても正解）
+const ALIAS = {"前受金":"契約負債","借入金":"当座借越","為替差損":"為替差損益","為替差益":"為替差損益"};
+const canon = a => ALIAS[a] || a;
+const ACCOUNTS = [...new Set(
+  QUESTIONS.flatMap(q => q.none ? [] : q.entries.flatMap(e => [...e.d, ...e.c].map(x => x[0])))
+)].sort((a,b) => a.localeCompare(b, "ja"));
+
+// 科目 → 登場する分野 のマップ（ダミー選択肢を同分野から優先して選ぶため）
+const ACCOUNT_CATS = {};
+QUESTIONS.forEach(q => {
+  if(q.none) return;
+  q.entries.forEach(e => [...e.d, ...e.c].forEach(x => {
+    (ACCOUNT_CATS[x[0]] = ACCOUNT_CATS[x[0]] || new Set()).add(q.cat);
+  }));
+});
+
+// 問題IDをシードにした擬似乱数 — 同じ問題なら毎回同じ選択肢になる
+function seededRand(seed){
+  let s = seed | 0;
+  return function(){
+    s = s + 0x6D2B79F5 | 0;
+    let t = Math.imul(s ^ s >>> 15, 1 | s);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+
+// 出題ごとの選択肢（正解科目＋別解表記＋ひっかけ候補＋ダミーで計10個前後）
+// trap には本試験の語群を参考に、その論点で混同しやすい科目を設定してある
+const CHOICE_TOTAL = 10;
+function buildChoices(q){
+  const rnd = seededRand(q.id * 9973 + 17);
+  const correct = q.none ? [] : [...new Set(q.entries.flatMap(e => [...e.d, ...e.c].map(x => x[0])))];
+  const set = new Set(correct);
+  // 別解として認める表記（ALIAS）も必ず選択肢に含める
+  const canons = new Set(correct.map(canon));
+  for(const [k, v] of Object.entries(ALIAS)){
+    if(canons.has(v)){ set.add(k); set.add(v); }
+  }
+  // ひっかけ候補（誤答として作り込んだ科目）を必ず含める
+  (q.trap || []).forEach(a => set.add(a));
+  // それでも足りなければ、同分野の科目からシード乱数で補充
+  const pick = list => {
+    const pool = list.filter(a => !set.has(a));
+    while(set.size < CHOICE_TOTAL && pool.length){
+      set.add(pool.splice(Math.floor(rnd() * pool.length), 1)[0]);
+    }
+  };
+  pick(ACCOUNTS.filter(a => (ACCOUNT_CATS[a] || new Set()).has(q.cat)));
+  pick(ACCOUNTS);
+  return [...set].sort((a,b) => a.localeCompare(b, "ja"));
+}
+function optionsFor(q){
+  return '<option value="">科目を選択</option>' +
+    buildChoices(q).map(a => "<option>"+a+"</option>").join("");
+}
+
+function makeRow(){
+  const opt = currentQ ? optionsFor(currentQ)
+    : '<option value="">科目を選択</option>' + ACCOUNTS.map(a => "<option>"+a+"</option>").join("");
+  const tr = document.createElement("tr");
+  tr.innerHTML =
+    '<td><select aria-label="借方科目">'+opt+'</select></td>' +
+    '<td class="amt-cell"><input type="number" inputmode="numeric" min="0" placeholder="金額" aria-label="借方金額"></td>' +
+    '<td class="div"><select aria-label="貸方科目">'+opt+'</select></td>' +
+    '<td class="amt-cell"><input type="number" inputmode="numeric" min="0" placeholder="金額" aria-label="貸方金額"></td>';
+  return tr;
+}
+function resetInput(){
+  const box = $("ioRows"); box.innerHTML = "";
+  box.appendChild(makeRow()); box.appendChild(makeRow());
+  $("chkNone").checked = false;
+  $("inputArea").classList.remove("locked");
+  const rb = $("resultBanner");
+  rb.className = "result"; rb.textContent = "";
+}
+function collectPairs(side){
+  // side: "d"=左2列(借方), "c"=右2列(貸方)
+  const pairs = []; let incomplete = false;
+  $("ioRows").querySelectorAll("tr").forEach(tr => {
+    const sel = tr.querySelectorAll("select")[side === "d" ? 0 : 1].value;
+    const amt = tr.querySelectorAll("input")[side === "d" ? 0 : 1].value.trim();
+    if(!sel && !amt) return;
+    if(!sel || !amt){ incomplete = true; return; }
+    pairs.push(canon(sel) + "|" + parseInt(amt, 10));
+  });
+  return { pairs: pairs.sort(), incomplete };
+}
+function correctPairs(q, side){
+  const out = [];
+  q.entries.forEach(e => e[side].forEach(x => out.push(canon(x[0]) + "|" + x[1])));
+  return out.sort();
+}
+const same = (a,b) => a.length === b.length && a.every((v,i) => v === b[i]);
+
+function grade(){
+  if(!currentQ) return;
+  const rb = $("resultBanner");
+  const D = collectPairs("d"), C = collectPairs("c");
+  const noneChecked = $("chkNone").checked;
+  if(D.incomplete || C.incomplete){
+    rb.className = "result warn";
+    rb.textContent = "科目と金額の片方だけ入力されているセルがあります。両方入力するか、空欄に戻してください。";
+    return;
+  }
+  if(!noneChecked && D.pairs.length === 0 && C.pairs.length === 0){
+    rb.className = "result warn";
+    rb.textContent = "セルに科目と金額を入力するか、「仕訳なし」にチェックしてください。";
+    return;
+  }
+  let ok;
+  if(currentQ.none){
+    ok = noneChecked && D.pairs.length === 0 && C.pairs.length === 0;
+  }else{
+    ok = !noneChecked
+      && same(D.pairs, correctPairs(currentQ, "d"))
+      && same(C.pairs, correctPairs(currentQ, "c"));
+  }
+  rb.className = ok ? "result ok" : "result ng";
+  rb.textContent = ok ? "○ 正解！" : "× 不正解 — 下の正答と解説を確認しましょう。";
+  $("inputArea").classList.add("locked");
+  showAnswer();
+}
+function showQuestion(){
+  const pool = remaining();
+  if(pool.length === 0){
+    $("qcard").hidden = true;
+    $("completeView").hidden = false;
+    return;
+  }
+  $("qcard").hidden = false;
+  $("completeView").hidden = true;
+  // 直前と同じ問題は避ける（2問以上残っている場合）
+  let next;
+  do{ next = pool[Math.floor(Math.random() * pool.length)]; }
+  while(pool.length > 1 && currentQ && next.id === currentQ.id);
+  currentQ = next;
+
+  $("qNo").textContent = "第" + currentQ.id + "問";
+  $("qCat").textContent = currentQ.cat;
+  $("qText").textContent = currentQ.q;
+  $("answerArea").classList.remove("show");
+  $("stamp").classList.remove("show");
+  resetInput();
+  $("btnGrade").hidden = false;
+  $("btnShow").hidden = false;
+  $("btnMaster").hidden = true;
+  $("btnNext").hidden = true;
+  $("btnMaster").classList.remove("done");
+  $("btnMaster").textContent = "✓ マスター済みにする";
+}
+
+function showAnswer(){
+  renderJournal(currentQ);
+  $("answerArea").classList.add("show");
+  $("btnGrade").hidden = true;
+  $("btnShow").hidden = true;
+  $("btnMaster").hidden = false;
+  $("btnNext").hidden = false;
+}
+
+async function toggleMasterCurrent(){
+  if(!currentQ) return;
+  if(mastered.has(currentQ.id)){
+    mastered.delete(currentQ.id);
+    $("btnMaster").classList.remove("done");
+    $("btnMaster").textContent = "✓ マスター済みにする";
+    $("stamp").classList.remove("show");
+  }else{
+    mastered.add(currentQ.id);
+    $("btnMaster").classList.add("done");
+    $("btnMaster").textContent = "済（タップで取り消し）";
+    $("stamp").classList.add("show");
+  }
+  updateProgress();
+  await saveMastered();
+}
+
+// ── 閲覧（問題と答えを並べて確認） ──
+function renderBrowse(){
+  const cat = $("browseCat").value;
+  const st = $("browseState").value;
+  const area = $("browseArea");
+  area.innerHTML = "";
+  QUESTIONS.forEach(q => {
+    if(cat && q.cat !== cat) return;
+    const isM = mastered.has(q.id);
+    if(st === "mastered" && !isM) return;
+    if(st === "remaining" && isM) return;
+
+    const card = document.createElement("article");
+    card.className = "bcard" + (isM ? " mastered" : "");
+
+    const meta = document.createElement("div");
+    meta.className = "qmeta";
+    meta.innerHTML = '<span class="qno">第' + q.id + '問</span><span class="qcat">' + q.cat + '</span>';
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "b-master serif" + (isM ? " done" : "");
+    btn.textContent = "済";
+    btn.setAttribute("aria-label", "第" + q.id + "問を習得済みにする");
+    btn.setAttribute("aria-pressed", isM);
+    btn.addEventListener("click", async () => {
+      if(mastered.has(q.id)) mastered.delete(q.id); else mastered.add(q.id);
+      const on = mastered.has(q.id);
+      btn.classList.toggle("done", on);
+      btn.setAttribute("aria-pressed", on);
+      card.classList.toggle("mastered", on);
+      updateProgress();
+      await saveMastered();
+    });
+
+    const text = document.createElement("p");
+    text.className = "qtext";
+    text.textContent = q.q;
+
+    const ans = document.createElement("section");
+    ans.className = "answer";
+    let inner = '<h3 class="serif">仕 訳 帳</h3>' + buildJournalHTML(q);
+    ans.innerHTML = inner;
+    if(q.note){
+      const note = document.createElement("p");
+      note.className = "note";
+      note.textContent = "💡 " + q.note;
+      ans.appendChild(note);
+    }
+
+    card.append(btn, meta, text, ans);
+    area.appendChild(card);
+  });
+  if(!area.children.length){
+    area.innerHTML = '<p style="text-align:center;color:var(--ink-soft);font-size:.85rem;padding:30px 0">条件に当てはまる問題がありません。絞り込みを変更してください。</p>';
+  }
+}
+
+// ── 一覧 ──
+function renderList(){
+  const cat = $("filterCat").value;
+  const st = $("filterState").value;
+  const ul = $("qList");
+  ul.innerHTML = "";
+  QUESTIONS.forEach(q => {
+    if(cat && q.cat !== cat) return;
+    const isM = mastered.has(q.id);
+    if(st === "mastered" && !isM) return;
+    if(st === "remaining" && isM) return;
+    const li = document.createElement("li");
+    if(isM) li.classList.add("mastered");
+    const cb = document.createElement("input");
+    cb.type = "checkbox"; cb.checked = isM;
+    cb.setAttribute("aria-label", "第" + q.id + "問を習得済みにする");
+    cb.addEventListener("change", async () => {
+      if(cb.checked) mastered.add(q.id); else mastered.delete(q.id);
+      li.classList.toggle("mastered", cb.checked);
+      updateProgress();
+      await saveMastered();
+    });
+    const noSpan = document.createElement("span");
+    noSpan.className = "li-no";
+    noSpan.textContent = "第" + q.id + "問";
+    const body = document.createElement("div");
+    body.textContent = q.q;
+    const tag = document.createElement("span");
+    tag.className = "li-cat"; tag.textContent = q.cat;
+    body.appendChild(tag);
+    li.append(cb, noSpan, body);
+    ul.appendChild(li);
+  });
+}
+
+function switchView(v){
+  view = v;
+  $("practiceView").hidden = v !== "practice";
+  $("browseView").hidden = v !== "browse";
+  $("listView").hidden = v !== "list";
+  $("tabPractice").classList.toggle("active", v === "practice");
+  $("tabBrowse").classList.toggle("active", v === "browse");
+  $("tabList").classList.toggle("active", v === "list");
+  if(v === "list") renderList();
+  else if(v === "browse") renderBrowse();
+  else showQuestion();
+}
+
+// ── イベント ──
+$("btnGrade").addEventListener("click", grade);
+$("btnShow").addEventListener("click", () => { $("inputArea").classList.add("locked"); showAnswer(); });
+$("addRow").addEventListener("click", () => { if($("ioRows").children.length < 4) $("ioRows").appendChild(makeRow()); });
+$("btnMaster").addEventListener("click", toggleMasterCurrent);
+$("btnNext").addEventListener("click", showQuestion);
+$("tabPractice").addEventListener("click", () => switchView("practice"));
+$("tabBrowse").addEventListener("click", () => switchView("browse"));
+$("tabList").addEventListener("click", () => switchView("list"));
+$("btnRestart").addEventListener("click", async () => {
+  mastered.clear(); updateProgress(); await saveMastered(); showQuestion();
+});
+let resetArmed = false;
+$("btnReset").addEventListener("click", async () => {
+  if(!resetArmed){
+    resetArmed = true;
+    $("btnReset").textContent = "もう一度タップで全解除";
+    setTimeout(() => {
+      resetArmed = false;
+      $("btnReset").textContent = "チェックを全解除";
+    }, 3000);
+    return;
+  }
+  resetArmed = false;
+  $("btnReset").textContent = "チェックを全解除";
+  mastered.clear(); updateProgress(); await saveMastered(); renderList();
+});
+
+// カテゴリの選択肢を生成（一覧・閲覧の両方）
+[...new Set(QUESTIONS.map(q => q.cat))].forEach(c => {
+  ["filterCat", "browseCat"].forEach(id => {
+    const op = document.createElement("option");
+    op.value = c; op.textContent = c;
+    $(id).appendChild(op);
+  });
+});
+$("filterCat").addEventListener("change", renderList);
+$("filterState").addEventListener("change", renderList);
+$("browseCat").addEventListener("change", renderBrowse);
+$("browseState").addEventListener("change", renderBrowse);
+
+// ── おすすめ教材の表示 ──
+function renderReco(){
+  const items = AFFILIATE_ITEMS;
+  if(!items.length) return;
+  $("recoArea").hidden = false;
+  const wrap = $("recoList");
+  wrap.innerHTML = "";
+  items.forEach(it => {
+    const div = document.createElement("div");
+    div.className = "reco-item";
+    const name = document.createElement("p");
+    name.className = "r-name"; name.textContent = it.name;
+    const desc = document.createElement("p");
+    desc.className = "r-desc"; desc.textContent = it.desc;
+    div.append(name, desc);
+    if(it.url){
+      const a = document.createElement("a");
+      a.className = "r-btn"; a.href = it.url;
+      a.target = "_blank"; a.rel = "nofollow sponsored noopener";
+      a.textContent = "詳しく見る →";
+      div.appendChild(a);
+    }else{
+      const s = document.createElement("span");
+      s.className = "r-btn"; s.textContent = "準備中";
+      div.appendChild(s);
+    }
+    wrap.appendChild(div);
+  });
+}
+
+// ── 規約モーダル ──
+[["linkPolicy","dlgPolicy"],["linkDisclaimer","dlgDisclaimer"],["linkAbout","dlgAbout"]].forEach(([l,d]) => {
+  $(l).addEventListener("click", e => { e.preventDefault(); $(d).showModal(); });
+});
+document.querySelectorAll("dialog [data-close]").forEach(b => {
+  b.addEventListener("click", () => b.closest("dialog").close());
+});
+
+// ── 起動 ──
+(async () => {
+  await loadMastered();
+  updateProgress();
+  renderReco();
+  if(memoryOnly){
+    document.querySelector(".save-note").textContent =
+      "※ この表示環境では保存ができないため、チェックは画面を開いている間のみ有効です。SafariやChromeで開くと自動保存されます。";
+  }
+  showQuestion();
+})();
+</script>
+</body>
+</html>
